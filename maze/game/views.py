@@ -32,7 +32,7 @@ def login_view(request):
 		if user is not None:
 			if user.is_active:
 				login(request,user)
-				return redirect('index2')
+				return redirect('play')
 			else:
 				message='Not Activated'
 		else:
@@ -40,8 +40,28 @@ def login_view(request):
 	context={'message':message}
 	return render(request,'game/login.html',context)
 
+
 @login_required
 def logout_view(request):
 	logout(request)
 	return render(request,'game/index.html',{})
 
+
+def play(request):
+	user = User.objects.get(username = request.user)
+	p = Profile.objects.get(user = user)
+	return render(request,'game/play.html',{'p':p})
+
+def play2(request,key):
+	user = User.objects.get(username = request.user)
+	p = Profile.objects.get(user = user)
+	if(p.moves == 0):
+		p.moves = key
+	elif(int(key) < p.moves):
+		p.moves = key
+	p.save()
+	return render(request,'game/play2.html',{'p':p})
+
+
+def game(request):
+	return render(request,'game/index2.html',{})
