@@ -124,7 +124,11 @@
             </div>
 
         </div>
-
+        <!---BUTTONS VIRTUAL KEYBOARD-->
+        <button value="38" onclick="doKeyDown2(38)">Up</button>
+        <button value="40" onclick="doKeyDown2(40)">Down</button>
+        <button value="37" onclick="doKeyDown2(37)">Left</button>
+        <button value="39" onclick="doKeyDown2(39)">Right</button>
 
     </div>
     <!--canvas id="c" width="2048" height="2048" style="margin-left:auto; margin-right:auto"></canvas-->
@@ -259,7 +263,53 @@
             if (handled)
                 evt.preventDefault(); // prevent arrow keys from scrolling the page (supported in IE9+ and all other browsers)
         }
+        function doKeyDown2(code)
+        {
+            var handled = false;
+            if (playing) {
+                switch (code) {
+                    case 38:  /* Up arrow was pressed */
+                        m.moveup("canvas");
+                        handled = true
+                        break;
+                    case 87:  /* Up arrow was pressed */
+                        m.moveup("canvas");
+                        handled = true
+                        break;
+                    case 40 :  /* Down arrow was pressed */
+                        m.movedown("canvas");
+                        handled = true
+                        break;
+                    case 83 :  /* Down arrow was pressed */
+                        m.movedown("canvas");
+                        handled = true
+                        break;
+                    case 37:  /* Left arrow was pressed */
+                        m.moveleft("canvas");
+                        handled = true
+                        break;
+                    case 65:  /* Left arrow was pressed */
+                        m.moveleft("canvas");
+                        handled = true
+                        break;
+                    case 39:  /* Right arrow was pressed */
+                        m.moveright("canvas");
+                        handled = true
+                        break;
+                    case 68:  /* Right arrow was pressed */
+                        m.moveright("canvas");
+                        handled = true
+                        break;
+                }
+                if (m.checker("canvas"))
+                    playing = false
+                console.log(m.getMoves())
+                Moves = m.getMoves()
+                console.log('MOVES ARE : '+ Moves);
 
+            }
+ // prevent arrow keys from scrolling the page (supported in IE9+ and all other browsers)
+        }
 
         var dsd = function (size) {
             this.N = size;
