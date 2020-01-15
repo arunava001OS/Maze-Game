@@ -5,6 +5,9 @@
     <title>Canvas Maze Game</title>
     <style>
         * { padding: 0; margin: 0; }
+        body{
+            background-color: black;
+        }
         #heading {
             text-align: center;
             margin-top: 15px;
@@ -12,8 +15,8 @@
             font-size: xx-large;
         }
         #heading{ margin: 0 auto}
-        #canvas { background: #99afa3; display: block; margin: 0 auto; }
-        #c { background: #eeeeee; display: block; margin: 0 auto; }
+        #canvas { background: black; display: block; margin: 0 auto; }
+        #c { background:black; display: block; margin: 0 auto; }
         #timerel { background: #eeeeee; display: block; margin: 0 auto; }
     </style>
     <style>
@@ -82,30 +85,103 @@
         }
 
         .modal-body {padding: 2px 16px;}
-
-        .modal-footer {
-            padding: 2px 16px;
-            background-color:#f4bc42;
-            color: white;
-            text-align: center;
-            height: 50%;
+        /*BUTTONS*/
+        @media only screen and (min-width: 600px) {
+            #heading{
+                font-size: 20vw;
+            }
+            .buttons{
+                margin-top: 15vw;
+                display: block;
+            }
+            .button-top{
+                
+                border-radius: 100%;
+                margin-left: 40% ;
+                transform: translate(0);
+                text-align: center;
+                margin-bottom: 0;
+            }
+            .button-bottom{
+                padding: 2vw;
+                border-radius: 100%;
+                margin-left: 40% ;
+                transform: translate(0%);
+                text-align: center;
+                margin-top: 0;
+            }
+            .button-top  > button {
+                background-color: black;
+                border: solid yellow 2px;
+                width: 18vw;
+                height: 18vw;
+                border-radius: 100%;
+            }
+            .button-bottom  > button {
+                background-color: black;
+                border: solid yellow 2px;
+                width: 18vw;
+                height: 18vw;
+                border-radius: 100%;
+            }
+            #timerel{
+                margin-left: 50%;
+                transform: translateX(-50%);
+                color: white;
+                background-color: black;
+                border: solid 0.5px white;
+                padding: 1vw;
+                margin-bottom: 2vw;
+                font-size: 5vw;
+                width: 80%;
+            }
+            #c{
+                margin-bottom: 10vw;
+                font-size: 5vw;
+                width: 80%;
+            }
         }
+        @media only screen and (min-width: 1000px) {
+            #heading{
+                font-size:7vw;
+            }
+            #timerel{
+                margin-left: 50%;
+                transform: translateX(-50%);
+                color: white;
+                background-color: black;
+                border: solid 1px white;
+                padding: 0.5vw;
+                font-size: large;
+                width: 15%;
+
+            }
+            #c{
+                margin-bottom: 10px;
+                font-size: large;
+                width: 10%;
+            }
+        }
+
+
     </style>
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet">
 </head>
 <body>
 <section>
-    <div id="wrapper" style="margin-left:auto; margin-right:auto;">
-        <h1 id="heading" style="background-color: #a59e9a; text-decoration-style: solid; color: #F8F8F8; width: 40%; margin-top: 0px; margin-bottom: 10px">Game-Title</h1>
+    <span id="wrapper" style="margin-left:auto; margin-right:auto;">
+        
+        <h1 id="heading" style="background-color:black; text-decoration-style: solid; color: #F8F8F8; width: 100%; margin-top:10px; margin-bottom: 10px;font-family: 'Nova Cut', cursive;">Maze It</h1>
         <div id="maze">
-            <p style="text-align: center;margin-bottom: 10px">Find the way out of Maze in 30 seconds!</p>
-            <div id="c" style="margin-left:auto; margin-right:auto;margin-bottom: 10px;text-align: center;width: 10%;font-size: large"></div>
+            <div id="timerel" style="display:inline-block;text-align: center;"></div>
+            <div id="c" style="margin-left:auto; margin-right:auto;text-align: center;color: white;"></div>
 
             <canvas id="canvas" width="523" height="523" style="margin-left:auto; margin-right:auto">
             This text is displayed if your browser does not support HTML5 Canvas.
             </canvas>
-            <div id="timerel" style="margin-left:auto; margin-right:auto;margin-top:0px;text-align: center;width: 15%;font-size: large"></div>
+            
 
         </div>
 
@@ -125,10 +201,18 @@
 
         </div>
         <!---BUTTONS VIRTUAL KEYBOARD-->
-        <button value="38" onclick="doKeyDown2(38)">Up</button>
-        <button value="40" onclick="doKeyDown2(40)">Down</button>
-        <button value="37" onclick="doKeyDown2(37)">Left</button>
-        <button value="39" onclick="doKeyDown2(39)">Right</button>
+        <div class="buttons">
+            <span class = "button-top">
+                <button value="38" id = 'up' onclick="doKeyDown2(38)"><i class="fas fa-arrow-up"></i></button><br>
+            </span>
+            <span class="button-bottom">
+                <button value="37" id = 'left' onclick="doKeyDown2(37)"><i class="fas fa-arrow-left"></i></button>
+                <button value="39" id = 'right' onclick="doKeyDown2(39)"><i class="fas fa-arrow-right"></i></button><br>
+            </span >
+            <span class="button-top">
+                <button value="40" id = 'down' onclick="doKeyDown2(40)"><i class="fas fa-arrow-down"></i></button>
+            </span>
+        </div>
 
     </div>
     <!--canvas id="c" width="2048" height="2048" style="margin-left:auto; margin-right:auto"></canvas-->
@@ -141,13 +225,13 @@
         var span = document.getElementsByClassName("close")[0];
 
         // When the user clicks the button, open the modal
-        modelfungo = function() {
+        /*modelfungo = function() {
             console.log("func called")
             modal.style.display = "block";
             x = document.querySelector(".gamehead");
             x.textContent = "Game Over"
 
-        }
+        }*/
 
         modelfunwin = function() {
             console.log("func called")
@@ -198,8 +282,8 @@
                         display.textContent = "Game Over";
                         start = Date.now() + 1000;
                         playing = false
-                        window.location.replace("{% url 'play' %}");
-                        modelfungo();
+                        //modelfungo();
+                        //window.location.replace("{% url 'play' %}");
                     }
                 }
             };
@@ -464,7 +548,7 @@
                     for (var i = 0; i < 2 * this.N + 1; i++) {
                         for (var j = 0; j < 2 * this.M + 1; j++) {
                             if (this.Board[i][j] != ' '){//} && this.Board[i][j] != '&') {
-                                this.ctx.fillStyle = "#0b052d";
+                                this.ctx.fillStyle = "#999900";
                                 this.ctx.fillRect(scale * i, scale * j, scale, scale);
                             }
                             else if(i<5 && j <5)
@@ -474,7 +558,7 @@
                     x = randomChoice(temp)
                 //    console.log(temp)
                     this.Board[x[0]][x[1]] = '&'
-                    this.ctx.fillStyle = "#c4192a";
+                    this.ctx.fillStyle = "#9e1522";
                     this.ctx.fillRect(scale* x[0], scale * x[1], scale, scale);
                 }
             };
