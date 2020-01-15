@@ -95,7 +95,7 @@
                 display: block;
             }
             .button-top{
-                
+
                 border-radius: 100%;
                 margin-left: 40% ;
                 transform: translate(0);
@@ -164,15 +164,96 @@
         }
 
 
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <section>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="{% url 'logout' %}">LogOut</a>
+  <a href="{% url 'play' %}">Home</a>
+
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ </button>
+
+  </div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
     <span id="wrapper" style="margin-left:auto; margin-right:auto;">
-        
+
         <h1 id="heading" style="background-color:black; text-decoration-style: solid; color: #F8F8F8; width: 100%; margin-top:10px; margin-bottom: 10px;font-family: 'Nova Cut', cursive;">Maze It</h1>
         <div id="maze">
             <div id="timerel" style="display:inline-block;text-align: center;"></div>
@@ -181,7 +262,7 @@
             <canvas id="canvas" width="523" height="523" style="margin-left:auto; margin-right:auto">
             This text is displayed if your browser does not support HTML5 Canvas.
             </canvas>
-            
+
 
         </div>
 
@@ -208,9 +289,9 @@
             <span class="button-bottom">
                 <button value="37" id = 'left' onclick="doKeyDown2(37)"><i class="fas fa-arrow-left"></i></button>
                 <button value="39" id = 'right' onclick="doKeyDown2(39)"><i class="fas fa-arrow-right"></i></button><br>
-            </span >
+            </span>
             <span class="button-top">
-                <button value="40" id = 'down' onclick="doKeyDown2(40)"><i class="fas fa-arrow-down"></i></button>
+                <button value="40" id = 'down' onclick="doKeyDown2(40)" class="not_visible"><i class="fas fa-arrow-down"></i></button>
             </span>
         </div>
 
@@ -235,11 +316,11 @@
 
         modelfunwin = function() {
             console.log("func called")
-            //modal.style.display = "block";
-            //x = document.querySelector(".gamehead");
-            //x.textContent = "Congrats! You Win"
+            modal.style.display = "block";
+            x = document.querySelector(".gamehead");
+            x.textContent = "Congrats! You Win"
             window.location.replace("playnow2/"+String(Moves));
-            
+
 
         }
 

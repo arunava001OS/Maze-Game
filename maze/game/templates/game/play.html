@@ -255,7 +255,7 @@
     }
     @media only screen and (min-width: 1000px){
         #title{
-            font-size: 10vw;
+            font-size: 15vw;
             margin-bottom: 1vw;
         }
         
@@ -283,12 +283,153 @@
             font-size: 2vw;
         }
     }
+        
+        .sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
     </style>
     <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <div id="container" style="z-index: -1;">
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+   <a href="{% url 'logout' %}">LogOut</a>
+  <a href="{% url 'play' %}">Home</a>
+  <a href="{% url 'game' %}">Play Now</a>
+
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ </button>
+
+  </div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+     <div id="container" style="z-index: -1;">
         <div id="portal">
           <svg id="mainGear" viewBox="-10 -10 532 532" version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
             <filter id="shaddowMain" x="-20%" y="-20%" width="200%" height="200%">
@@ -1352,10 +1493,10 @@
           </div>
         </div>
       </div>
-    <h2 id = "title" style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">MAZEMERIZE</h2>
+    <h1 id = "title" style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">MAZE IT</h1>
     <h2 id='username' style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Hello {{p.user.username}}</h2>
     <h3 id = 'moves' style="color: white;text-align: center;font-family: 'Nova Cut', serif;">Your Best Moves Are {{p.moves}}</h3>
     
-    <button><a href="{% url 'game' %}">PLAY NOW</a></button>
+    <button style="position: absolute;left: 40%;top: 80%;"><a href="{% url 'game' %}">PLAY NOW</a></button>
 </body>
 </html>
