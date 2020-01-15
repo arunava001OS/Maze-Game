@@ -25,7 +25,7 @@ SECRET_KEY = '*ih&z@@%wu4tii^v#&qspb#3(sd=f^cn_0mg17b56(wr+*q(=$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mazemerize.pythonanywhere.com']
 
 
 # Application definition
