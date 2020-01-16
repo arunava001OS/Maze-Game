@@ -407,9 +407,9 @@
 <body>
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-   <a href="{% url 'logout' %}">LogOut</a>
-  <a href="{% url 'play' %}">Home</a>
-  <a href="{% url 'game' %}">Play Now</a>
+   <a href="{% url 'signup' %}">Sign Up</a>
+  <a href="{% url 'login' %}">Login</a>
+
 
 </div>
 
@@ -1496,9 +1496,6 @@ function closeNav() {
     <h1 id = "title" style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">MAZE IT</h1>
     <h2 id='username' style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">WELCOME</h2>
 
-    
-    <button style="position: absolute;left: 40%;top: 80%;"><a href="{% url 'signup' %}">Sign-Up</a></button><br>
-    <button style="position: absolute;left: 40%;top: 80%;"><a href="{% url 'login' %}">Login</a></button>
 
 </body>
 </html>
