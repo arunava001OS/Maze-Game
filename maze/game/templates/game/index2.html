@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>Canvas Maze Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <style>
         * { padding: 0; margin: 0; }
         body{
             background-color: black;
+            overflow-x: hidden;
         }
         #heading {
             text-align: center;
@@ -222,7 +224,7 @@
   .sidebar a {font-size: 18px;}
 }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/ca1cdc2614.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet">
 </head>
@@ -284,14 +286,14 @@ function closeNav() {
         <!---BUTTONS VIRTUAL KEYBOARD-->
         <div class="buttons" style="touch-action: manipulation;">
             <span class = "button-top">
-                <button value="38" id = 'up' onclick="doKeyDown2(38)"><i class="fas fa-arrow-up"></i></button><br>
+                <button value="38" id = 'up' onclick="doKeyDown2(38)"><i class="fa fa-arrow-up"></i></button><br>
             </span>
             <span class="button-bottom">
-                <button value="37" id = 'left' onclick="doKeyDown2(37)"><i class="fas fa-arrow-left"></i></button>
-                <button value="39" id = 'right' onclick="doKeyDown2(39)"><i class="fas fa-arrow-right"></i></button><br>
+                <button value="37" id = 'left' onclick="doKeyDown2(37)"><i class="fa fa-arrow-left"></i></button>
+                <button value="39" id = 'right' onclick="doKeyDown2(39)"><i class="fa fa-arrow-right"></i></button><br>
             </span>
             <span class="button-top">
-                <button value="40" id = 'down' onclick="doKeyDown2(40)" class="not_visible"><i class="fas fa-arrow-down"></i></button>
+                <button value="40" id = 'down' onclick="doKeyDown2(40)" class="not_visible"><i class="fa fa-arrow-down"></i></button>
             </span>
         </div>
 
