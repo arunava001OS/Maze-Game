@@ -4,13 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
-
-    <title>Play Again</title>
+    <title>Play Now</title>
     <style>
         body{
 	background-color: #151515;
@@ -289,78 +283,11 @@
             font-size: 2vw;
         }
     }
-      #nav-bar
-{
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-.navbar-brand img
-{
-    height: 100px;
-    padding-left: 30px;
-}
-.navbar-nav li
-{
-    padding: 0 20px;
-}
-.navbar-nav li
-{
-    float: right;
-    text-align: left;
-}
-#nav-bar ul li a:hover
-{
-color: #007bff!important;
-}
-.navbar
-{
-    background: #586776;
-}
-.navbar-toggler
-{
-    border: none!important;
-}
-.nav-link
-{
-    color: #DAE0E2!important;
-    font-weight: 600;
-    font-size: 16px;
-}
-#navbarNav
-{   margin-bottom: 00px;
-    padding-bottom: -10px;
-}
     </style>
     <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet"> 
 </head>
 <body>
-        <!-----Navigatio  nBar---->
-<section id="nav-bar">
-<nav class="navbar navbar-expand-lg navbar-light">
-<a class="navbar-brand" href="#"><img src="best-logo-2013-27.jpg"></a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ml-auto">
-<li class="nav-item active">
-<a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="{% url 'play' %}">HOME</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="">Rules and regulations</a>
-</li>
-  <li class="nav-item">
-<a class="nav-link" href="{% url 'game' %}">Play again</a>
-</li>
-</ul>
-</div>
-</nav>
-</section>
     <div id="container" style="z-index: -1;">
         <div id="portal">
           <svg id="mainGear" viewBox="-10 -10 532 532" version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
