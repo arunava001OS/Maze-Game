@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
     <title>Play Now</title>
     <style>
         body{
@@ -255,10 +260,13 @@
     }
     @media only screen and (min-width: 1000px){
         #title{
-            font-size: 10vw;
+            font-size: 15vw;
             margin-bottom: 1vw;
+            position: absolute;
+          top: 30%;
+          left: 20%;
         }
-        
+
         #username{
             margin-top: 2vw;
             font-size: 6vw;
@@ -283,152 +291,109 @@
             font-size: 2vw;
         }
     }
-        
-        .sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+#nav-bar
+{
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
-
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+.navbar-brand img
+{
+    height: 100px;
+    padding-left: 30px;
 }
-
-.sidebar a:hover {
-  color: #f1f1f1;
+.navbar-nav li
+{
+    padding: 0 20px;
 }
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+.navbar-nav li
+{
+    float: right;
+    text-align: left;
 }
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
+#nav-bar ul li a:hover
+{
+color: #007bff!important;
 }
-
-.openbtn:hover {
-  background-color: #444;
+.navbar
+{
+    background: #586776;
 }
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
+.navbar-toggler
+{
+    border: none!important;
 }
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+.nav-link
+{
+    color: #DAE0E2!important;
+    font-weight: 600;
+    font-size: 16px;
 }
-
-
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+#navbarNav
+{   margin-bottom: 00px;
+    padding-bottom: -10px;
 }
-
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color: #444;
-}
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
+      #now{
+        position: absolute;
+        left: 0%;
+        top: 90%;
+        color: #fff !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #ed3330;
+padding: 15px;
+border-radius: 50px;
+display: inline-block;
+border: none;
+transition: all 0.4s ease 0s;
+      }
+      #now:hover {
+        background: #434343;
+letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+      }
+      @media (max-width: 767px){
+        #now{
+          position: absolute;
+          left: 40%;
+          top: 80%;
+        }
+      }
     </style>
-    <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-   <a href="{% url 'logout' %}">LogOut</a>
-  <a href="{% url 'play' %}">Home</a>
-  <a href="{% url 'game' %}">Play Now</a>
+<!-----Navigatio  nBar---->
+<section id="nav-bar">
+<nav class="navbar navbar-expand-lg navbar-light">
+<a class="navbar-brand" href="#"><img src="mazelogo.jpg"></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item active">
+<a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{% url 'play' %}">HOME</a>
+</li>
+  <li class="nav-item">
+<a class="nav-link" href="{% url 'game' %}">PLAY NOW</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="">Rules and regulations</a>
+</li>
 
+
+</ul>
 </div>
-
-<div id="main">
-  <button class="openbtn" onclick="openNav()">☰ </button>
-
-  </div>
-
-<script>
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-}
-</script>
+</nav>
+</section>
      <div id="container" style="z-index: -1;">
         <div id="portal">
           <svg id="mainGear" viewBox="-10 -10 532 532" version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
@@ -437,9 +402,9 @@ function closeNav() {
               <feGaussianBlur result="blurOut" in="offOut" stdDeviation="5"/>
               <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
             </filter>
-      
+
             <path filter="url(#shaddowMain)" d="M281.426,1.266c-16.909,-1.688 -33.943,-1.688 -50.852,0l-5.24,47.066c-15.965,2.358 -31.605,6.548 -46.611,12.489l-28.071,-38.14c-15.487,6.992 -30.239,15.51 -44.039,25.426l18.996,43.38c-12.648,10.024 -24.098,21.474 -34.122,34.122l-43.38,-18.996c-9.916,13.8 -18.434,28.552 -25.426,44.039l38.14,28.071c-5.941,15.006 -10.131,30.646 -12.489,46.611l-47.066,5.24c-1.688,16.909 -1.688,33.943 0,50.852l47.066,5.24c2.358,15.965 6.548,31.605 12.489,46.611l-38.14,28.071c6.992,15.487 15.51,30.239 25.426,44.039l43.38,-18.996c10.024,12.648 21.474,24.098 34.122,34.122l-18.996,43.38c13.8,9.916 28.552,18.434 44.039,25.426l28.071,-38.14c15.006,5.941 30.646,10.131 46.611,12.489l5.24,47.066c16.909,1.688 33.943,1.688 50.852,0l5.24,-47.066c15.965,-2.358 31.605,-6.548 46.611,-12.489l28.071,38.14c15.487,-6.992 30.239,-15.51 44.039,-25.426l-18.996,-43.38c12.648,-10.024 24.098,-21.474 34.122,-34.122l43.38,18.996c9.916,-13.8 18.434,-28.552 25.426,-44.039l-38.14,-28.071c5.941,-15.006 10.131,-30.646 12.489,-46.611l47.066,-5.24c1.688,-16.909 1.688,-33.943 0,-50.852l-47.066,-5.24c-2.358,-15.965 -6.548,-31.605 -12.489,-46.611l38.14,-28.071c-6.992,-15.487 -15.51,-30.239 -25.426,-44.039l-43.38,18.996c-10.024,-12.648 -21.474,-24.098 -34.122,-34.122l18.996,-43.38c-13.8,-9.916 -28.552,-18.434 -44.039,-25.426l-28.071,38.14c-15.006,-5.941 -30.646,-10.131 -46.611,-12.489l-5.24,-47.066Zm-25.426,78.094c97.49,0 176.64,79.15 176.64,176.64c0,97.49 -79.15,176.64 -176.64,176.64c-97.49,0 -176.64,-79.15 -176.64,-176.64c0,-97.49 79.15,-176.64 176.64,-176.64Z"/>
-      
+
             <g class="runes">
               <g id="_11">
                 <path d="M137.832,47.21c4.022,-2.236 8.751,-1.415 10.556,1.832c1.804,3.246 0.005,7.697 -4.016,9.932c-4.021,2.235 -8.751,1.414 -10.556,-1.832c-1.804,-3.247 -0.005,-7.697 4.016,-9.932Z"/>
@@ -588,12 +553,12 @@ function closeNav() {
               </g>
             </g>
           </svg>
-      
+
           <div id="innerGears">
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
-              <g transform="rotate(-15.5, 256, 256)">	
+              <g transform="rotate(-15.5, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -663,11 +628,11 @@ function closeNav() {
                 </filter>
               </defs>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(-19, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -721,11 +686,11 @@ function closeNav() {
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(5, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -775,20 +740,20 @@ function closeNav() {
                     <path d="M355.756,386.142l-15.871,9.281l14.48,24.431l-20.443,11.816l-17.819,-31.076l6.42,-3.681l14.125,24.634l7.536,-4.356l-14.46,-24.398l22.296,-13.039l3.736,6.388Z"/>
                     <path d="M369.497,411.13l-18.374,10.598l-3.697,-6.411l11.961,-6.898l-6.229,-10.789l6.409,-3.7l9.93,17.2Z"/>
                   </g>
-      
-      
-      
-      
-      
+
+
+
+
+
                 </g>
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.1"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(-3, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -838,20 +803,20 @@ function closeNav() {
                     <path d="M355.756,386.142l-15.871,9.281l14.48,24.431l-20.443,11.816l-17.819,-31.076l6.42,-3.681l14.125,24.634l7.536,-4.356l-14.46,-24.398l22.296,-13.039l3.736,6.388Z"/>
                     <path d="M369.497,411.13l-18.374,10.598l-3.697,-6.411l11.961,-6.898l-6.229,-10.789l6.409,-3.7l9.93,17.2Z"/>
                   </g>
-      
-      
-      
-      
-      
+
+
+
+
+
                 </g>
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(-5, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -905,11 +870,11 @@ function closeNav() {
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(18, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -963,11 +928,11 @@ function closeNav() {
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(-15, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -1017,20 +982,20 @@ function closeNav() {
                     <path d="M355.756,386.142l-15.871,9.281l14.48,24.431l-20.443,11.816l-17.819,-31.076l6.42,-3.681l14.125,24.634l7.536,-4.356l-14.46,-24.398l22.296,-13.039l3.736,6.388Z"/>
                     <path d="M369.497,411.13l-18.374,10.598l-3.697,-6.411l11.961,-6.898l-6.229,-10.789l6.409,-3.7l9.93,17.2Z"/>
                   </g>
-      
-      
-      
-      
-      
+
+
+
+
+
                 </g>
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(13, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -1084,11 +1049,11 @@ function closeNav() {
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(10, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -1142,11 +1107,11 @@ function closeNav() {
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(2, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -1200,11 +1165,11 @@ function closeNav() {
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(0, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -1258,11 +1223,11 @@ function closeNav() {
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(-9, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -1316,11 +1281,11 @@ function closeNav() {
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(-9, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -1374,11 +1339,11 @@ function closeNav() {
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(5.8, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -1432,11 +1397,11 @@ function closeNav() {
               </g>
               <rect x="0" y="0" width="100%" height="100%" fill="black" opacity="0.05"/>
             </svg>
-      
+
             <svg class="innerGear" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
               <g transform="rotate(3, 256, 256)">
                 <path filter="url(#shaddow)" class="teeth" d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm55.61,108.518l-30.248,-8.082l-10.597,27.163l-29.711,0.021l-10.635,-27.148l-30.237,8.124l4.405,28.823l-25.72,14.874l-22.785,-18.194l-22.123,22.155l18.225,22.759l-14.837,25.74l-28.829,-4.363l-8.082,30.248l27.163,10.597l0.021,29.711l-27.148,10.635l8.124,30.237l28.823,-4.405l14.874,25.72l-18.194,22.785l22.155,22.123l22.759,-18.225l25.74,14.837l-4.363,28.829l30.248,8.082l10.597,-27.163l29.711,-0.021l10.635,27.148l30.237,-8.124l-4.405,-28.823l25.72,-14.874l22.785,18.194l22.123,-22.155l-18.225,-22.759l14.837,-25.74l28.829,4.363l8.082,-30.248l-27.163,-10.597l-0.021,-29.711l27.148,-10.635l-8.124,-30.237l-28.823,4.405l-14.874,-25.72l18.194,-22.785l-22.155,-22.123l-22.759,18.225l-25.74,-14.837l4.363,-28.829Z"/>
-      
+
                 <g class="runes">
                   <g>
                     <path d="M277.245,418.863l-18.385,0.103l0.325,28.397l-23.612,0.011l0.106,-35.821l7.4,0.022l-0.084,28.396l8.705,-0.004l-0.325,-28.36l25.829,-0.144l0.041,7.4Z"/>
@@ -1493,10 +1458,10 @@ function closeNav() {
           </div>
         </div>
       </div>
-    <h1 id = "title" style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Mazemerize</h1>
+    <h1 id = "title" style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">MAZE IT</h1>
     <h2 id='username' style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Hello {{p.user.username}}</h2>
     <h3 id = 'moves' style="color: white;text-align: center;font-family: 'Nova Cut', serif;">Your Best Moves Are {{p.moves}}</h3>
-    
-    <button style="position: absolute;left: 40%;top: 80%;"><a href="{% url 'game' %}">PLAY NOW</a></button>
+
+    <button id="now"><a href="{% url 'game' %}">PLAY NOW</a></button>
 </body>
 </html>

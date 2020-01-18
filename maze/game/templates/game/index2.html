@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <title>Canvas Maze Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
     <style>
         * { padding: 0; margin: 0; }
         body{
@@ -166,64 +171,63 @@
             }
         }
 
-
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+#nav-bar
+{
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
-
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+.navbar-brand img
+{
+    height: 100px;
+    padding-left: 30px;
 }
-
-.sidebar a:hover {
-  color: #f1f1f1;
+.navbar-nav li
+{
+    padding: 0 20px;
 }
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+.navbar-nav li
+{
+    float: right;
+    text-align: left;
 }
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
+#nav-bar ul li a:hover
+{
+color: #007bff!important;
 }
-
-.openbtn:hover {
-  background-color: #444;
+.navbar
+{
+    background: #586776;
 }
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
+.navbar-toggler
+{
+    border: none!important;
 }
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+.nav-link
+{
+    color: #DAE0E2!important;
+    font-weight: 600;
+    font-size: 16px;
 }
+#navbarNav
+{   margin-bottom: 00px;
+    padding-bottom: -10px;
+}
+        @media (max-width: 967px){
+            #down
+            {
+                position: absolute;
+                top: 140% !important;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            #down{
+                position: absolute;
+                top: 205%;
+            }
+
+        }
     </style>
     <script src="https://kit.fontawesome.com/ca1cdc2614.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet">
@@ -232,29 +236,34 @@
 <body>
 
 <section>
-<div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a href="{% url 'logout' %}">LogOut</a>
-  <a href="{% url 'play' %}">Home</a>
 
+<!-----Navigatio  nBar---->
+<section id="nav-bar">
+<nav class="navbar navbar-expand-lg navbar-light">
+<a class="navbar-brand" href="#"><img src="mazelogo.jpg"></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item active">
+<a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{% url 'play' %}">HOME</a>
+</li>
+  <li class="nav-item">
+<a class="nav-link" href="{% url 'game' %}">PLAY NOW</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="">Rules and regulations</a>
+</li>
+
+
+</ul>
 </div>
-
-<div id="main">
-  <button class="openbtn" onclick="openNav()">☰ </button>
-
-  </div>
-
-<script>
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-}
-</script>
+</nav>
+</section>
     <span id="wrapper" style="margin-left:auto; margin-right:auto;">
 
         <h1 id="heading" style="background-color:black; text-decoration-style: solid; color: #F8F8F8; width: 100%; margin-top:10px; margin-bottom: 10px;font-family: 'Nova Cut', cursive;">Mazemerize</h1>
@@ -290,11 +299,11 @@ function closeNav() {
                 <button value="38" id = 'up' onclick="doKeyDown2(38)"><i class="fa fa-arrow-up"></i></button><br>
             </span>
             <span class="button-bottom">
-                <button value="37" id = 'left' onclick="doKeyDown2(37)"><i class="fa fa-arrow-left"></i></button>
-                <button value="39" id = 'right' onclick="doKeyDown2(39)"><i class="fa fa-arrow-right"></i></button><br>
+                <button value="37" id = 'left' onclick="doKeyDown2(37)" style="position: absolute;left: 20%;"><i class="fa fa-arrow-left"></i></button>
+                <button value="39" id = 'right' onclick="doKeyDown2(39)" style="position: absolute;right: 20%;"><i class="fa fa-arrow-right"></i></button><br>
             </span>
             <span class="button-top">
-                <button value="40" id = 'down' onclick="doKeyDown2(40)" class="not_visible"><i class="fa fa-arrow-down"></i></button>
+                <button value="40" id = 'down' onclick="doKeyDown2(40)" id="down"><i class="fa fa-arrow-down"></i></button>
             </span>
         </div>
 
