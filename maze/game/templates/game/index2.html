@@ -1,46 +1,80 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/html">
+
 <head>
     <meta charset="UTF-8" />
     <title>Canvas Maze Game</title>
-       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-     <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet">
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
-        * { padding: 0; margin: 0; }
-        body{
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
             background-color: black;
             overflow-x: hidden;
         }
+
         #heading {
             text-align: center;
             margin-top: 15px;
             margin-bottom: 15px;
         }
-        #heading{ margin: 0 auto}
-        #canvas { background: black; display: block; margin: 0 auto; }
-        #c { background:black; display: block; margin: 0 auto; }
-        #timerel { background: #eeeeee; display: block; margin: 0 auto; }
+
+        #heading {
+            margin: 0 auto
+        }
+
+        #canvas {
+            background: black;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #c {
+            background: black;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #timerel {
+            background: #eeeeee;
+            display: block;
+            margin: 0 auto;
+        }
     </style>
     <style>
         /* The Modal (background) */
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            padding-top: 20%; /* Location of the box */
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 20%;
+            /* Location of the box */
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
         }
 
         /* Modal Content */
@@ -51,7 +85,7 @@
             padding: 0;
             border: 1px solid #888;
             width: 30%;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             -webkit-animation-name: animatetop;
             -webkit-animation-duration: 0.4s;
             animation-name: animatetop;
@@ -60,13 +94,27 @@
 
         /* Add Animation */
         @-webkit-keyframes animatetop {
-            from {top:-300px; opacity:0}
-            to {top:0; opacity:1}
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
         }
 
         @keyframes animatetop {
-            from {top:-300px; opacity:0}
-            to {top:0; opacity:1}
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
         }
 
         /* The Close Button */
@@ -89,51 +137,60 @@
             background-color: #41d9f4;
             color: white;
             text-align: center;
-            height : 50%;
+            height: 50%;
         }
 
-        .modal-body {padding: 2px 16px;}
+        .modal-body {
+            padding: 2px 16px;
+        }
+
         /*BUTTONS*/
         @media only screen and (min-width: 600px) {
-            #heading{
+            #heading {
                 font-size: 15vw;
             }
-            .buttons{
+
+            .buttons {
                 margin-top: 15vw;
                 display: block;
                 touch-action: manipulation;
             }
-            .button-top{
+
+            .button-top {
 
                 border-radius: 100%;
-                margin-left: 40% ;
+                margin-left: 40%;
                 transform: translate(0);
                 text-align: center;
                 margin-bottom: 0;
             }
-            .button-bottom{
+
+            .button-bottom {
                 padding: 2vw;
                 border-radius: 100%;
-                margin-left: 40% ;
+                margin-left: 40%;
                 transform: translate(0%);
                 text-align: center;
                 margin-top: 0;
             }
-            .button-top  > button {
+
+            .button-top>button {
                 background-color: black;
                 border: solid yellow 2px;
                 width: 18vw;
                 height: 18vw;
                 border-radius: 100%;
             }
-            .button-bottom  > button {
+
+            .button-bottom>button {
                 background-color: black;
                 border: solid yellow 2px;
                 width: 18vw;
                 height: 18vw;
                 border-radius: 100%;
             }
-            #timerel{
+
+            #timerel {
                 margin-left: 50%;
                 transform: translateX(-50%);
                 color: white;
@@ -144,17 +201,20 @@
                 font-size: 5vw;
                 width: 80%;
             }
-            #c{
+
+            #c {
                 margin-bottom: 10vw;
                 font-size: 5vw;
                 width: 80%;
             }
         }
+
         @media only screen and (min-width: 1000px) {
-            #heading{
-                font-size:7vw;
+            #heading {
+                font-size: 7vw;
             }
-            #timerel{
+
+            #timerel {
                 margin-left: 50%;
                 transform: translateX(-50%);
                 color: white;
@@ -165,7 +225,8 @@
                 width: 15%;
 
             }
-            #c{
+
+            #c {
                 margin-bottom: 10px;
                 font-size: large;
                 width: 10%;
@@ -173,610 +234,619 @@
         }
 
 
- #nav-bar
-{
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-.navbar-brand img
-{
-    height: 100px;
-    padding-left: 30px;
-}
-.navbar-nav li
-{
-    padding: 0 20px;
-}
-.navbar-nav li
-{
-    float: right;
-    text-align: left;
-}
-#nav-bar ul li a:hover
-{
-color: #007bff!important;
-}
-.navbar
-{
-    background: #586776;
-}
-.navbar-toggler
-{
-    border: none!important;
-}
-.nav-link
-{
-    color: #DAE0E2!important;
-    font-weight: 600;
-    font-size: 16px;
-}
-#navbarNav
-{   margin-bottom: 00px;
-    padding-bottom: -10px;
-}
+        #nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar-brand img {
+            height: 100px;
+            padding-left: 30px;
+        }
+
+        .navbar-nav li {
+            padding: 0 20px;
+        }
+
+        .navbar-nav li {
+            float: right;
+            text-align: left;
+        }
+
+        #nav-bar ul li a:hover {
+            color: #007bff !important;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .navbar-toggler {
+            border: none !important;
+        }
+
+        .nav-link {
+            color: #DAE0E2 !important;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        #navbarNav {
+            margin-bottom: 00px;
+            padding-bottom: -10px;
+        }
     </style>
     <script src="https://kit.fontawesome.com/ca1cdc2614.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-<section>
-<!-----Navigatio  nBar---->
-<section id="nav-bar">
-<nav class="navbar navbar-expand-lg navbar-light">
-<a class="navbar-brand" href="#"><img src="mazelogo.jpg"></a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ml-auto">
-<li class="nav-item active">
-<a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="{% url 'play' %}">HOME</a>
-</li>
-  <li class="nav-item">
-<a class="nav-link" href="{% url 'game' %}">PLAY NOW</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="">Rules and regulations</a>
-</li>
+    <div>
+        <!-----Navigatio  nBar---->
+        <section id="nav-bar">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#"><img src="mazelogo.jpg"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'play' %}">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'game' %}">PLAY NOW</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Rules and regulations</a>
+                        </li>
 
 
-</ul>
-</div>
-</nav>
-</section>
-    <span id="wrapper" style="margin-left:auto; margin-right:auto;">
-
-        <h1 id="heading" style="background-color:black; text-decoration-style: solid; color: #F8F8F8; width: 100%; margin-top:10px; margin-bottom: 10px;font-family: 'Nova Cut', cursive;">Mazemerize</h1>
-        <div id="maze">
-            <div id="timerel" style="display:inline-block;text-align: center;"></div>
-            <div id="c" style="margin-left:auto; margin-right:auto;text-align: center;color: white;"></div>
-
-            <canvas id="canvas" width="523" height="523" style="margin-left:auto; margin-right:auto">
-            This text is displayed if your browser does not support HTML5 Canvas.
-            </canvas>
-
-
+                    </ul>
+                </div>
+            </nav>
         </div>
+        <span id="wrapper" style="margin-left:auto; margin-right:auto;">
 
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
+            <h1 id="heading"
+                style="background-color:black; text-decoration-style: solid; color: #F8F8F8; width: 100%; margin-top:10px; margin-bottom: 10px;font-family: 'Nova Cut', cursive;">
+                Mazemerize</h1>
+            <div id="maze">
+                <div id="timerel" style="display:inline-block;text-align: center;"></div>
+                <div id="c" style="margin-left:auto; margin-right:auto;text-align: center;color: white;"></div>
 
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2 class="gamehead"></h2>
-                </div>
-                <div class="modal-footer">
-                    <h2 id="demo" onmouseover="" style="cursor:pointer;">Play Again?</h2>
-                </div>
+                <canvas id="canvas" width="523" height="523" style="margin-left:auto; margin-right:auto">
+                    This text is displayed if your browser does not support HTML5 Canvas.
+                </canvas>
+
+
             </div>
 
-        </div>
-        <!---BUTTONS VIRTUAL KEYBOARD-->
-        <div class="buttons" style="touch-action: manipulation;">
-            <span class = "button-top">
-                <button value="38" id = 'up' onclick="doKeyDown2(38)"><i class="fa fa-arrow-up"></i></button><br>
-            </span>
-            <span class="button-bottom">
-                <button value="37" id = 'left' onclick="doKeyDown2(37)"><i class="fa fa-arrow-left"></i></button>
-                <button value="39" id = 'right' onclick="doKeyDown2(39)"><i class="fa fa-arrow-right"></i></button><br>
-            </span>
-            <span class="button-top">
-                <button value="40" id = 'down' onclick="doKeyDown2(40)" class="not_visible"><i class="fa fa-arrow-down"></i></button>
-            </span>
-        </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
 
-    </div>
-    <!--canvas id="c" width="2048" height="2048" style="margin-left:auto; margin-right:auto"></canvas-->
-    <script type="text/javascript">
-        var Moves = 0;
-        // Get the modal
-        var modal = document.getElementById('myModal');
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2 class="gamehead"></h2>
+                    </div>
+                    <div class="modal-footer">
+                        <h2 id="demo" onmouseover="" style="cursor:pointer;">Play Again?</h2>
+                    </div>
+                </div>
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+            </div>
+            <!---BUTTONS VIRTUAL KEYBOARD-->
+            <div class="buttons" style="touch-action: manipulation;">
+                <span class="button-top">
+                    <button value="38" id='up' onclick="doKeyDown2(38)"><i class="fa fa-arrow-up"></i></button><br>
+                </span>
+                <span class="button-bottom">
+                    <button value="37" id='left' onclick="doKeyDown2(37)"><i class="fa fa-arrow-left"></i></button>
+                    <button value="39" id='right' onclick="doKeyDown2(39)"><i
+                            class="fa fa-arrow-right"></i></button><br>
+                </span>
+                <span class="button-top">
+                    <button value="40" id='down' onclick="doKeyDown2(40)" class="not_visible"><i
+                            class="fa fa-arrow-down"></i></button>
+                </span>
+            </div>
 
-        // When the user clicks the button, open the modal
-        /*modelfungo = function() {
-            console.log("func called")
-            modal.style.display = "block";
-            x = document.querySelector(".gamehead");
-            x.textContent = "Game Over"
+            </div>
+            <!--canvas id="c" width="2048" height="2048" style="margin-left:auto; margin-right:auto"></canvas-->
+            <script type="text/javascript">
+                var Moves = 0;
+                // Get the modal
+                var modal = document.getElementById('myModal');
 
-        }*/
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
 
-        modelfunwin = function() {
-            console.log("func called")
-            modal.style.display = "block";
-            x = document.querySelector(".gamehead");
-            x.textContent = "Congrats! You Win"
-            window.location.replace("playnow2/"+String(Moves));
+                // When the user clicks the button, open the modal
+                /*modelfungo = function() {
+                    console.log("func called")
+                    modal.style.display = "block";
+                    x = document.querySelector(".gamehead");
+                    x.textContent = "Game Over"
+        
+                }*/
 
-
-        }
-
-        document.getElementById("demo").addEventListener("click", myFunction);
-
-        function myFunction() {
-            document.location.reload();
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+                modelfunwin = function () {
+                    console.log("func called")
+                    modal.style.display = "block";
+                    x = document.querySelector(".gamehead");
+                    x.textContent = "Congrats! You Win"
+                    window.location.replace("playnow2/" + String(Moves));
 
 
-        //var now = new Date().getTime();
-        function startTimer(duration, display) {
-            var start = Date.now(),
-                diff,
-                minutes,
-                seconds;
+                }
 
-            function timer() {
-                if(playing) {
-                    diff = duration - (((Date.now() - start) / 1000) | 0);
-                    minutes = (diff / 60) | 0;
-                    seconds = (diff % 60) | 0;
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-                    display.textContent = "Game ends in " + minutes + ":" + seconds;
+                document.getElementById("demo").addEventListener("click", myFunction);
 
-                    if (diff <= 0) {
-                        display.textContent = "Game Over";
-                        start = Date.now() + 1000;
-                        playing = false
-                        //modelfungo();
-                        window.location.replace("{% url 'play' %}");
+                function myFunction() {
+                    document.location.reload();
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
                     }
                 }
-            };
-            timer();
-            setInterval(timer,1000)
-        }
 
-        window.onload = function () {
-            twominutes = 30;     ///TIME SETTINGS HERE
-            x = document.querySelector("#timerel");
-            startTimer(twominutes,x)
-        }
-        playing = true
-        window.addEventListener('keydown',doKeyDown,true);
 
-        function doKeyDown(evt)
-        {
-            var handled = false;
-            if (playing) {
-                switch (evt.keyCode) {
-                    case 38:  /* Up arrow was pressed */
-                        m.moveup("canvas");
-                        handled = true
-                        break;
-                    case 87:  /* Up arrow was pressed */
-                        m.moveup("canvas");
-                        handled = true
-                        break;
-                    case 40 :  /* Down arrow was pressed */
-                        m.movedown("canvas");
-                        handled = true
-                        break;
-                    case 83 :  /* Down arrow was pressed */
-                        m.movedown("canvas");
-                        handled = true
-                        break;
-                    case 37:  /* Left arrow was pressed */
-                        m.moveleft("canvas");
-                        handled = true
-                        break;
-                    case 65:  /* Left arrow was pressed */
-                        m.moveleft("canvas");
-                        handled = true
-                        break;
-                    case 39:  /* Right arrow was pressed */
-                        m.moveright("canvas");
-                        handled = true
-                        break;
-                    case 68:  /* Right arrow was pressed */
-                        m.moveright("canvas");
-                        handled = true
-                        break;
-                }
-                if (m.checker("canvas"))
-                    playing = false
-                console.log(m.getMoves())
-                Moves = m.getMoves()
-                console.log('MOVES ARE : '+ Moves);
+                //var now = new Date().getTime();
+                function startTimer(duration, display) {
+                    var start = Date.now(),
+                        diff,
+                        minutes,
+                        seconds;
 
-            }
-            if (handled)
-                evt.preventDefault(); // prevent arrow keys from scrolling the page (supported in IE9+ and all other browsers)
-        }
-        function doKeyDown2(code)
-        {
-            var handled = false;
-            if (playing) {
-                switch (code) {
-                    case 38:  /* Up arrow was pressed */
-                        m.moveup("canvas");
-                        handled = true
-                        break;
-                    case 87:  /* Up arrow was pressed */
-                        m.moveup("canvas");
-                        handled = true
-                        break;
-                    case 40 :  /* Down arrow was pressed */
-                        m.movedown("canvas");
-                        handled = true
-                        break;
-                    case 83 :  /* Down arrow was pressed */
-                        m.movedown("canvas");
-                        handled = true
-                        break;
-                    case 37:  /* Left arrow was pressed */
-                        m.moveleft("canvas");
-                        handled = true
-                        break;
-                    case 65:  /* Left arrow was pressed */
-                        m.moveleft("canvas");
-                        handled = true
-                        break;
-                    case 39:  /* Right arrow was pressed */
-                        m.moveright("canvas");
-                        handled = true
-                        break;
-                    case 68:  /* Right arrow was pressed */
-                        m.moveright("canvas");
-                        handled = true
-                        break;
-                }
-                if (m.checker("canvas"))
-                    playing = false
-                console.log(m.getMoves())
-                Moves = m.getMoves()
-                console.log('MOVES ARE : '+ Moves);
+                    function timer() {
+                        if (playing) {
+                            diff = duration - (((Date.now() - start) / 1000) | 0);
+                            minutes = (diff / 60) | 0;
+                            seconds = (diff % 60) | 0;
+                            minutes = minutes < 10 ? "0" + minutes : minutes;
+                            seconds = seconds < 10 ? "0" + seconds : seconds;
+                            display.textContent = "Game ends in " + minutes + ":" + seconds;
 
-            }
- // prevent arrow keys from scrolling the page (supported in IE9+ and all other browsers)
-        }
-
-        var dsd = function (size) {
-            this.N = size;
-            this.P = new Array(this.N);
-            this.R = new Array(this.N);
-
-            this.init = function () {
-                for (var i = 0; i < this.N; i++) {
-                    this.P[i] = i;
-                    this.R[i] = 0;
-                }
-            }
-
-            this.union = function (x, y) {
-                var u = this.find(x);
-                var v = this.find(y);
-                if (this.R[u] > this.R[v]) {
-                    this.R[u] = this.R[v] + 1;
-                    this.P[u] = v;
-                }
-                else {
-                    this.R[v] = this.R[u] + 1;
-                    this.P[v] = u;
-                }
-            }
-
-            this.find = function (x) {
-                if (x == this.P[x])
-                    return x;
-                this.P[x] = this.find(this.P[x]);
-                return this.P[x];
-            }
-        };
-
-        function random(min, max)      { return (min + (Math.random() * (max - min)));            };
-        function randomChoice(choices) { return choices[Math.round(random(0, choices.length-1))]; };
-
-        var maze = function (X, Y) {
-            this.N = X;
-            this.M = Y;
-            this.S = 25;
-            this.moves = 0;
-            this.Board = new Array(2 * this.N + 1);
-            this.EL = new Array();
-            this.vis = new Array(2 * this.N + 1);
-            this.delay = 2;
-            this.x = 1;
-            this.init = function () {
-                for (var i = 0; i < 2 * this.N + 1; i++) {
-                    this.Board[i] = new Array(2 * this.M + 1);
-                    this.vis[i] = new Array(2 * this.M + 1);
-                }
-
-                for (var i = 0; i < 2 * this.N + 1; i++) {
-                    for (var j = 0; j < 2 * this.M + 1; j++) {
-                        if (!(i % 2) && !(j % 2)) {
-                            this.Board[i][j] = '+';
+                            if (diff <= 0) {
+                                display.textContent = "Game Over";
+                                start = Date.now() + 1000;
+                                playing = false
+                                //modelfungo();
+                                window.location.replace("{% url 'play' %}");
+                            }
                         }
-                        else if (!(i % 2)) {
-                            this.Board[i][j] = '-';
+                    };
+                    timer();
+                    setInterval(timer, 1000)
+                }
+
+                window.onload = function () {
+                    twominutes = 30;     ///TIME SETTINGS HERE
+                    x = document.querySelector("#timerel");
+                    startTimer(twominutes, x)
+                }
+                playing = true
+                window.addEventListener('keydown', doKeyDown, true);
+
+                function doKeyDown(evt) {
+                    var handled = false;
+                    if (playing) {
+                        switch (evt.keyCode) {
+                            case 38:  /* Up arrow was pressed */
+                                m.moveup("canvas");
+                                handled = true
+                                break;
+                            case 87:  /* Up arrow was pressed */
+                                m.moveup("canvas");
+                                handled = true
+                                break;
+                            case 40:  /* Down arrow was pressed */
+                                m.movedown("canvas");
+                                handled = true
+                                break;
+                            case 83:  /* Down arrow was pressed */
+                                m.movedown("canvas");
+                                handled = true
+                                break;
+                            case 37:  /* Left arrow was pressed */
+                                m.moveleft("canvas");
+                                handled = true
+                                break;
+                            case 65:  /* Left arrow was pressed */
+                                m.moveleft("canvas");
+                                handled = true
+                                break;
+                            case 39:  /* Right arrow was pressed */
+                                m.moveright("canvas");
+                                handled = true
+                                break;
+                            case 68:  /* Right arrow was pressed */
+                                m.moveright("canvas");
+                                handled = true
+                                break;
                         }
-                        else if (!(j % 2)) {
-                            this.Board[i][j] = '|';
+                        if (m.checker("canvas"))
+                            playing = false
+                        console.log(m.getMoves())
+                        Moves = m.getMoves()
+                        console.log('MOVES ARE : ' + Moves);
+
+                    }
+                    if (handled)
+                        evt.preventDefault(); // prevent arrow keys from scrolling the page (supported in IE9+ and all other browsers)
+                }
+                function doKeyDown2(code) {
+                    var handled = false;
+                    if (playing) {
+                        switch (code) {
+                            case 38:  /* Up arrow was pressed */
+                                m.moveup("canvas");
+                                handled = true
+                                break;
+                            case 87:  /* Up arrow was pressed */
+                                m.moveup("canvas");
+                                handled = true
+                                break;
+                            case 40:  /* Down arrow was pressed */
+                                m.movedown("canvas");
+                                handled = true
+                                break;
+                            case 83:  /* Down arrow was pressed */
+                                m.movedown("canvas");
+                                handled = true
+                                break;
+                            case 37:  /* Left arrow was pressed */
+                                m.moveleft("canvas");
+                                handled = true
+                                break;
+                            case 65:  /* Left arrow was pressed */
+                                m.moveleft("canvas");
+                                handled = true
+                                break;
+                            case 39:  /* Right arrow was pressed */
+                                m.moveright("canvas");
+                                handled = true
+                                break;
+                            case 68:  /* Right arrow was pressed */
+                                m.moveright("canvas");
+                                handled = true
+                                break;
+                        }
+                        if (m.checker("canvas"))
+                            playing = false
+                        console.log(m.getMoves())
+                        Moves = m.getMoves()
+                        console.log('MOVES ARE : ' + Moves);
+
+                    }
+                    // prevent arrow keys from scrolling the page (supported in IE9+ and all other browsers)
+                }
+
+                var dsd = function (size) {
+                    this.N = size;
+                    this.P = new Array(this.N);
+                    this.R = new Array(this.N);
+
+                    this.init = function () {
+                        for (var i = 0; i < this.N; i++) {
+                            this.P[i] = i;
+                            this.R[i] = 0;
+                        }
+                    }
+
+                    this.union = function (x, y) {
+                        var u = this.find(x);
+                        var v = this.find(y);
+                        if (this.R[u] > this.R[v]) {
+                            this.R[u] = this.R[v] + 1;
+                            this.P[u] = v;
                         }
                         else {
-                            this.Board[i][j] = ' ';
-                        }
-                        this.vis[i][j] = 0;
-                    }
-                }
-            }
-
-
-            this.add_edges = function () {
-                for (var i = 0; i < this.N; i++) {
-                    for (var j = 0; j < this.M; j++) {
-                        if (i != this.N - 1) {
-                            this.EL.push([[i, j], [i + 1, j], 1]);
-                        }
-                        if (j != this.M - 1) {
-                            this.EL.push([[i, j], [i, j + 1], 1]);
+                            this.R[v] = this.R[u] + 1;
+                            this.P[v] = u;
                         }
                     }
-                }
-            }
+
+                    this.find = function (x) {
+                        if (x == this.P[x])
+                            return x;
+                        this.P[x] = this.find(this.P[x]);
+                        return this.P[x];
+                    }
+                };
+
+                function random(min, max) { return (min + (Math.random() * (max - min))); };
+                function randomChoice(choices) { return choices[Math.round(random(0, choices.length - 1))]; };
+
+                var maze = function (X, Y) {
+                    this.N = X;
+                    this.M = Y;
+                    this.S = 25;
+                    this.moves = 0;
+                    this.Board = new Array(2 * this.N + 1);
+                    this.EL = new Array();
+                    this.vis = new Array(2 * this.N + 1);
+                    this.delay = 2;
+                    this.x = 1;
+                    this.init = function () {
+                        for (var i = 0; i < 2 * this.N + 1; i++) {
+                            this.Board[i] = new Array(2 * this.M + 1);
+                            this.vis[i] = new Array(2 * this.M + 1);
+                        }
+
+                        for (var i = 0; i < 2 * this.N + 1; i++) {
+                            for (var j = 0; j < 2 * this.M + 1; j++) {
+                                if (!(i % 2) && !(j % 2)) {
+                                    this.Board[i][j] = '+';
+                                }
+                                else if (!(i % 2)) {
+                                    this.Board[i][j] = '-';
+                                }
+                                else if (!(j % 2)) {
+                                    this.Board[i][j] = '|';
+                                }
+                                else {
+                                    this.Board[i][j] = ' ';
+                                }
+                                this.vis[i][j] = 0;
+                            }
+                        }
+                    }
 
 
-            //Hash function
-            this.h = function (e) {
-                return e[1] * this.M + e[0];
-            }
-            this.randomize = function (EL) {
-                for (var i = 0; i < EL.length; i++) {
-                    var si = Math.floor(Math.random() * 387) % EL.length;
-                    var tmp = EL[si];
-                    EL[si] = EL[i];
-                    EL[i] = tmp;
-                }
-                return EL;
-            }
+                    this.add_edges = function () {
+                        for (var i = 0; i < this.N; i++) {
+                            for (var j = 0; j < this.M; j++) {
+                                if (i != this.N - 1) {
+                                    this.EL.push([[i, j], [i + 1, j], 1]);
+                                }
+                                if (j != this.M - 1) {
+                                    this.EL.push([[i, j], [i, j + 1], 1]);
+                                }
+                            }
+                        }
+                    }
 
-            this.breakwall = function (e) {
-                var x = e[0][0] + e[1][0] + 1;
-                var y = e[0][1] + e[1][1] + 1;
-                this.Board[x][y] = ' ';
-            }
 
-            this.gen_maze = function () {
-                this.EL = this.randomize(this.EL);
-                var D = new dsd(this.M * this.M);
-                D.init();
-                var s = this.h([0, 0]);
-                var e = this.h([this.N - 1, this.M - 1]);
-                this.Board[1][0] = ' ';
-                this.Board[2 * this.N - 1][2 * this.M] = ' ';
-                //Run Kruskal
-                for (var i = 0; i < this.EL.length; i++) {
-                    var x = this.h(this.EL[i][0]);
-                    var y = this.h(this.EL[i][1]);
-                    if (D.find(s) == D.find(e)) {
-                        if (!(D.find(x) == D.find(s) && D.find(y) == D.find(s))) {
-                            if (D.find(x) != D.find(y)) {
+                    //Hash function
+                    this.h = function (e) {
+                        return e[1] * this.M + e[0];
+                    }
+                    this.randomize = function (EL) {
+                        for (var i = 0; i < EL.length; i++) {
+                            var si = Math.floor(Math.random() * 387) % EL.length;
+                            var tmp = EL[si];
+                            EL[si] = EL[i];
+                            EL[i] = tmp;
+                        }
+                        return EL;
+                    }
+
+                    this.breakwall = function (e) {
+                        var x = e[0][0] + e[1][0] + 1;
+                        var y = e[0][1] + e[1][1] + 1;
+                        this.Board[x][y] = ' ';
+                    }
+
+                    this.gen_maze = function () {
+                        this.EL = this.randomize(this.EL);
+                        var D = new dsd(this.M * this.M);
+                        D.init();
+                        var s = this.h([0, 0]);
+                        var e = this.h([this.N - 1, this.M - 1]);
+                        this.Board[1][0] = ' ';
+                        this.Board[2 * this.N - 1][2 * this.M] = ' ';
+                        //Run Kruskal
+                        for (var i = 0; i < this.EL.length; i++) {
+                            var x = this.h(this.EL[i][0]);
+                            var y = this.h(this.EL[i][1]);
+                            if (D.find(s) == D.find(e)) {
+                                if (!(D.find(x) == D.find(s) && D.find(y) == D.find(s))) {
+                                    if (D.find(x) != D.find(y)) {
+                                        D.union(x, y);
+                                        this.breakwall(this.EL[i]);
+                                        this.EL[i][2] = 0;
+                                    }
+
+                                }
+                                //break;
+                            }
+
+                            else if (D.find(x) != D.find(y)) {
                                 D.union(x, y);
                                 this.breakwall(this.EL[i]);
                                 this.EL[i][2] = 0;
                             }
-
+                            else {
+                                continue;
+                            }
                         }
-                        //break;
-                    }
 
-                    else if (D.find(x) != D.find(y)) {
-                        D.union(x, y);
-                        this.breakwall(this.EL[i]);
-                        this.EL[i][2] = 0;
-                    }
-                    else {
-                        continue;
-                    }
-                }
-
-            };
+                    };
 
 
-            this.draw_canvas = function (id) {
-                this.canvas = document.getElementById(id);
-                var scale = this.S;
-                temp = []
-                if (this.canvas.getContext) {
-                    this.ctx = this.canvas.getContext('2d');
-                    this.Board[1][0] = '$'
-                    for (var i = 0; i < 2 * this.N + 1; i++) {
-                        for (var j = 0; j < 2 * this.M + 1; j++) {
-                            if (this.Board[i][j] != ' '){//} && this.Board[i][j] != '&') {
-                                this.ctx.fillStyle = "#999900";
-                                this.ctx.fillRect(scale * i, scale * j, scale, scale);
+                    this.draw_canvas = function (id) {
+                        this.canvas = document.getElementById(id);
+                        var scale = this.S;
+                        temp = []
+                        if (this.canvas.getContext) {
+                            this.ctx = this.canvas.getContext('2d');
+                            this.Board[1][0] = '$'
+                            for (var i = 0; i < 2 * this.N + 1; i++) {
+                                for (var j = 0; j < 2 * this.M + 1; j++) {
+                                    if (this.Board[i][j] != ' ') {//} && this.Board[i][j] != '&') {
+                                        this.ctx.fillStyle = "#999900";
+                                        this.ctx.fillRect(scale * i, scale * j, scale, scale);
+                                    }
+                                    else if (i < 5 && j < 5)
+                                        temp.push([i, j])
+                                }
                             }
-                            else if(i<5 && j <5)
-                                temp.push([i,j])
-                            }
-                    }
-                    x = randomChoice(temp)
-                //    console.log(temp)
-                    this.Board[x[0]][x[1]] = '&'
-                    this.ctx.fillStyle = "#9e1522";
-                    this.ctx.fillRect(scale* x[0], scale * x[1], scale, scale);
-                }
-            };
+                            x = randomChoice(temp)
+                            //    console.log(temp)
+                            this.Board[x[0]][x[1]] = '&'
+                            this.ctx.fillStyle = "#9e1522";
+                            this.ctx.fillRect(scale * x[0], scale * x[1], scale, scale);
+                        }
+                    };
 
-            this.checkPos = function (id) {
-                for (var i = 0; i < 2 * this.N + 1; i++) {
-                    for (var j = 0; j < 2 * this.M + 1; j++) {
-                        if (this.Board[i][j] == '&') {
-                           // console.log(i,j)
-                            return [i,j]
+                    this.checkPos = function (id) {
+                        for (var i = 0; i < 2 * this.N + 1; i++) {
+                            for (var j = 0; j < 2 * this.M + 1; j++) {
+                                if (this.Board[i][j] == '&') {
+                                    // console.log(i,j)
+                                    return [i, j]
+                                }
+                            }
                         }
                     }
+
+                    this.moveclear = function (a, b) {
+                        var scale = this.S;
+                        this.ctx = this.canvas.getContext('2d');
+                        this.ctx.fillStyle = "#e27158";
+                        this.ctx.fillRect(scale * a, scale * b, scale, scale);
+                        this.Board[a][b] = ' '
+                    }
+
+                    this.move = function (a, b) {
+                        var scale = this.S;
+                        this.ctx = this.canvas.getContext('2d');
+                        this.ctx.fillStyle = "#c4192a";
+                        this.ctx.fillRect(scale * a, scale * b, scale, scale);
+                        this.Board[a][b] = '&'
+                    }
+
+                    this.moveup = function (id) {
+                        cord = this.checkPos(id);
+                        var scale = this.S;
+                        i = cord[0]
+                        j = cord[1]
+                        j -= 1
+                        if (j < 0)
+                            return
+                        else if (j > 2 * this.M)
+                            return
+                        else if (this.Board[i][j] == ' ') {
+                            this.moveclear(i, j + 1);
+                            this.move(i, j);
+                            this.moves += 1;
+                        }
+                        else
+                            return
+                    }
+
+                    this.movedown = function (id) {
+                        cord = this.checkPos(id);
+                        var scale = this.S;
+                        i = cord[0]
+                        j = cord[1]
+                        j += 1
+                        if (j < 0)
+                            return
+                        else if (j > 2 * this.M)
+                            return
+                        else if (this.Board[i][j] == ' ') {
+                            this.moveclear(i, j - 1);
+                            this.move(i, j);
+                            this.moves += 1;
+                        }
+                        else
+                            return
+                    }
+
+                    this.moveleft = function (id) {
+                        cord = this.checkPos(id);
+                        var scale = this.S;
+                        i = cord[0]
+                        j = cord[1]
+                        i -= 1
+                        if (i < 0)
+                            return
+                        else if (i > 2 * this.N)
+                            return
+                        else if (this.Board[i][j] == ' ') {
+                            this.moveclear(i + 1, j);
+                            this.move(i, j);
+                            this.moves += 1;
+                        }
+                        else
+                            return
+                    }
+
+                    this.moveright = function (id) {
+                        cord = this.checkPos(id);
+                        var scale = this.S;
+                        i = cord[0]
+                        j = cord[1]
+                        i += 1
+                        if (i < 0)
+                            return
+                        else if (i > 2 * this.N)
+                            return
+                        else if (this.Board[i][j] == ' ') {
+                            this.moveclear(i - 1, j);
+                            this.move(i, j);
+                            this.moves += 1;
+                        }
+                        else
+                            return
+                    }
+                    this.checker = function (id) {
+                        //      console.log("win");
+                        cord = this.checkPos(id);
+                        i = cord[0]
+                        j = cord[1]
+                        //    console.log(cord)
+                        if ((i == 19 && j == 20) || (i == 1 && j == 0)) {
+                            modelfunwin();
+                            //           alert("YOU WIN, CONGRATULATIONS!");
+                            //
+                            return 1
+                        }
+                        return 0
+                    }
+
+                    this.getMoves = function () {
+                        return this.moves;
+                    }
+
+                };
+
+                m = new maze(10, 10);
+                m.init();
+                m.add_edges();
+                m.gen_maze();
+                m.draw_canvas("canvas");
+                function drawMoves() {
+                    document.getElementById("c").innerHTML = "Moves: " + m.getMoves()
                 }
-            }
-
-            this.moveclear = function (a,b) {
-                var scale = this.S;
-                this.ctx = this.canvas.getContext('2d');
-                this.ctx.fillStyle = "#e27158";
-                this.ctx.fillRect(scale * a, scale * b, scale, scale);
-                this.Board[a][b] = ' '
-            }
-
-            this.move =  function (a,b) {
-                var scale = this.S;
-                this.ctx = this.canvas.getContext('2d');
-                this.ctx.fillStyle = "#c4192a";
-                this.ctx.fillRect(scale * a, scale * b, scale, scale);
-                this.Board[a][b] = '&'
-            }
-
-            this.moveup = function (id) {
-                cord = this.checkPos(id);
-                var scale = this.S;
-                i = cord[0]
-                j = cord[1]
-                j -= 1
-                if (j < 0)
-                    return
-                else if (j > 2 * this.M)
-                    return
-                else if (this.Board[i][j] == ' ') {
-                    this.moveclear(i,j+1);
-                    this.move(i,j);
-                    this.moves+=1;}
-                else
-                    return
-            }
-
-            this.movedown = function (id) {
-                cord = this.checkPos(id);
-                var scale = this.S;
-                i = cord[0]
-                j = cord[1]
-                j+=1
-                if(j<0)
-                    return
-                else if(j>2*this.M)
-                    return
-                else if(this.Board[i][j] ==' ') {
-                    this.moveclear(i,j-1);
-                    this.move(i,j);
-                    this.moves+=1;}
-                else
-                    return
-            }
-
-            this.moveleft = function (id) {
-                cord = this.checkPos(id);
-                var scale = this.S;
-                i = cord[0]
-                j = cord[1]
-                i-=1
-                if(i<0)
-                    return
-                else if(i>2*this.N)
-                    return
-                else if(this.Board[i][j] ==' ') {
-                    this.moveclear(i+1,j);
-                    this.move(i,j);
-                    this.moves+=1;}
-                else
-                    return
-            }
-
-            this.moveright = function (id) {
-                cord = this.checkPos(id);
-                var scale = this.S;
-                i = cord[0]
-                j = cord[1]
-                i+=1
-                if(i<0)
-                    return
-                else if(i>2*this.N)
-                    return
-                else if(this.Board[i][j] ==' ') {
-                    this.moveclear(i-1,j);
-                    this.move(i,j);
-                    this.moves+=1;}
-                else
-                    return
-            }
-            this.checker = function (id) {
-          //      console.log("win");
-                cord = this.checkPos(id);
-                i = cord[0]
-                j = cord[1]
-            //    console.log(cord)
-                if ((i == 19 && j== 20) || (i==1 && j==0)) {
-                    modelfunwin();
-         //           alert("YOU WIN, CONGRATULATIONS!");
-                  //
-                    return 1
-                }
-                return 0
-            }
-
-            this.getMoves = function () {
-                return this.moves;
-            }
-
-        };
-
-        m = new maze(10 , 10);
-        m.init();
-        m.add_edges();
-        m.gen_maze();
-        m.draw_canvas("canvas");
-        function drawMoves() {
-            document.getElementById("c").innerHTML = "Moves: "+ m.getMoves()
-        }
-       // drawMoves();
-       setInterval(drawMoves, 100);
+                // drawMoves();
+                setInterval(drawMoves, 100);
 
         //addEvents();
-    </script>
-    <script>
+            </script>
+            <script>
 
-    </script>
+            </script>
 
 
-</section>
+    </div>
 </body>
+
 </html>
