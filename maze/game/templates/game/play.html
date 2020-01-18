@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
     <title>Play Now</title>
     <style>
         body{
@@ -284,151 +289,109 @@
         }
     }
         
-        .sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+ #nav-bar
+{
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
-
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+.navbar-brand img
+{
+    height: 100px;
+    padding-left: 30px;
 }
-
-.sidebar a:hover {
-  color: #f1f1f1;
+.navbar-nav li
+{
+    padding: 0 20px;
 }
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+.navbar-nav li
+{
+    float: right;
+    text-align: left;
 }
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
+#nav-bar ul li a:hover
+{
+color: #007bff!important;
 }
-
-.openbtn:hover {
-  background-color: #444;
+.navbar
+{
+    background: #586776;
 }
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
+.navbar-toggler
+{
+    border: none!important;
 }
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+.nav-link
+{
+    color: #DAE0E2!important;
+    font-weight: 600;
+    font-size: 16px;
 }
-
-
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+#navbarNav
+{   margin-bottom: 00px;
+    padding-bottom: -10px;
 }
-
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color: #444;
-}
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
+            #now{
+        position: absolute;
+        left: 0%;
+        top: 90%;
+        color: #fff !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #ed3330;
+padding: 15px;
+border-radius: 50px;
+display: inline-block;
+border: none;
+transition: all 0.4s ease 0s;
+      }
+      #now:hover {
+        background: #434343;
+letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+      }
+      @media (max-width: 767px){
+        #now{
+          position: absolute;
+          left: 40%;
+          top: 80%;
+        }
+      }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet"> 
 </head>
 <body>
-<div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-   <a href="{% url 'logout' %}">LogOut</a>
-  <a href="{% url 'play' %}">Home</a>
-  <a href="{% url 'game' %}">Play Now</a>
+<!-----Navigatio  nBar---->
+<section id="nav-bar">
+<nav class="navbar navbar-expand-lg navbar-light">
+<a class="navbar-brand" href="#"><img src="mazelogo.jpg"></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item active">
+<a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{% url 'play' %}">HOME</a>
+</li>
+  <li class="nav-item">
+<a class="nav-link" href="{% url 'game' %}">PLAY NOW</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="">Rules and regulations</a>
+</li>
 
+
+</ul>
 </div>
-
-<div id="main">
-  <button class="openbtn" onclick="openNav()">☰ </button>
-
-  </div>
-
-<script>
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-}
-</script>
+</nav>
+</section>
      <div id="container" style="z-index: -1;">
         <div id="portal">
           <svg id="mainGear" viewBox="-10 -10 532 532" version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
@@ -1497,6 +1460,6 @@ function closeNav() {
     <h2 id='username' style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Hello {{p.user.username}}</h2>
     <h3 id = 'moves' style="color: white;text-align: center;font-family: 'Nova Cut', serif;">Your Best Moves Are {{p.moves}}</h3>
     
-    <button style="position: absolute;left: 40%;top: 80%;"><a href="{% url 'game' %}">PLAY NOW</a></button>
+    <button id="now"><a href="{% url 'game' %}">PLAY NOW</a></button>
 </body>
 </html>
