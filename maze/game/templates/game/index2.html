@@ -79,12 +79,14 @@
 
         /* Modal Content */
         .modal-content {
+            color: white;
             position: relative;
-            background-color: #fefefe;
+            background-color:rgba(235, 41, 41, 0.788);
+            border-radius: 10px;
             margin: auto;
             padding: 0;
             border: 1px solid #888;
-            width: 30%;
+            width: 20%;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             -webkit-animation-name: animatetop;
             -webkit-animation-duration: 0.4s;
@@ -119,6 +121,7 @@
 
         /* The Close Button */
         .close {
+            display: none;
             color: white;
             float: right;
             font-size: 28px;
@@ -133,14 +136,16 @@
         }
 
         .modal-header {
+            text-align: center;
             padding: 2px 16px;
-            background-color: #41d9f4;
+            background-color:rgba(235, 41, 41, 0.788);;
             color: white;
             text-align: center;
             height: 50%;
         }
 
         .modal-body {
+            text-align: center;
             padding: 2px 16px;
         }
 
@@ -428,7 +433,7 @@
                                 start = Date.now() + 1000;
                                 playing = false
                                 //modelfungo();
-                                //window.location.replace("{% url 'play' %}");
+                                window.location.replace("{% url 'play' %}");
                             }
                         }
                     };
