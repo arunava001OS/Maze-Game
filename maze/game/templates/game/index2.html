@@ -2,8 +2,9 @@
 <html xmlns="http://www.w3.org/1999/html">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta content= "user-scalable=no">
+    
+    <meta name="viewport" content="width=device-width">
+
     <title>Canvas Maze Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -144,9 +145,11 @@
         }
 
         /*BUTTONS*/
-        @media only screen and (min-width: 600px) {
+        @media only screen and (max-width: 600px) {
             #heading {
                 font-size: 15vw;
+                margin-left: 50%;
+                transform: translateX(-28%);
             }
 
             .buttons {
@@ -191,10 +194,9 @@
 
             #timerel {
                 margin-left: 50%;
-                transform: translateX(-50%);
+                transform: translateX(-30%);
                 color: white;
                 background-color: black;
-                border: solid 0.5px white;
                 padding: 1vw;
                 margin-bottom: 2vw;
                 font-size: 5vw;
@@ -205,6 +207,8 @@
                 margin-bottom: 10vw;
                 font-size: 5vw;
                 width: 80%;
+                margin-left: 50%;
+                transform: translateX(20%);
             }
         }
 
@@ -312,9 +316,7 @@
         </div>
         <span id="wrapper" style="margin-left:auto; margin-right:auto;">
 
-            <h1 id="heading"
-                style="background-color:black; text-decoration-style: solid; color: #F8F8F8; width: 100%; margin-top:10px; margin-bottom: 10px;font-family: 'Nova Cut', cursive;">
-                Mazemerize</h1>
+            <h1 id="heading" style="background-color:black; text-decoration-style: solid; color: #F8F8F8; width: 100%; margin-top:10px; margin-bottom: 10px;font-family: 'Nova Cut', cursive;">Mazemerize</h1>
             <div id="maze">
                 <div id="timerel" style="display:inline-block;text-align: center;"></div>
                 <div id="c" style="margin-left:auto; margin-right:auto;text-align: center;color: white;"></div>
@@ -426,7 +428,7 @@
                                 start = Date.now() + 1000;
                                 playing = false
                                 //modelfungo();
-                                window.location.replace("{% url 'play' %}");
+                                //window.location.replace("{% url 'play' %}");
                             }
                         }
                     };
