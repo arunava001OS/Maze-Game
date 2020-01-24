@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-signin-client_id" content="999683917365-s9vj33npuahriv4mb0nsgcmdev57t7jb.apps.googleusercontent.com.apps.googleusercontent.com">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -11,6 +12,9 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
   <title>Play Now</title>
   <style>
     body {
@@ -467,6 +471,17 @@
   </style>
   <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet">
+  <script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
+
+  </script>
+  
 </head>
 
 <body>
@@ -479,12 +494,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'login' %}">LOGIN</a>
-          </li>
+        <ul class="navbar-nav ml-auto"></ul>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}">SIGN UP</a>
+            <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-outline btn-xl js-scroll-trigger" style="border: 2px solid;"  ><i class="fa fa-google fa-fw">
+            </i> Login with Google
+          </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Rules and regulations</a>
