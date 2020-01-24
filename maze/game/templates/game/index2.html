@@ -157,6 +157,46 @@
                 transform: translateX(-28%);
             }
 
+            .buttons {
+                margin-top: 15vw;
+                display: block;
+                touch-action: manipulation;
+            }
+
+            .button-top {
+
+                border-radius: 100%;
+                margin-left: 40%;
+                transform: translate(0);
+                text-align: center;
+                margin-bottom: 0;
+            }
+
+            .button-bottom {
+                padding: 2vw;
+                border-radius: 100%;
+                margin-left: 40%;
+                transform: translate(0%);
+                text-align: center;
+                margin-top: 0;
+            }
+
+            .button-top>button {
+                background-color: yellow;
+                border: solid yellow 2px;
+                width: 18vw;
+                height: 18vw;
+                border-radius: 100%;
+            }
+
+            .button-bottom>button {
+                background-color: yellow;
+                border: solid yellow 2px;
+                width: 18vw;
+                height: 18vw;
+                border-radius: 100%;
+            }
+
             #timerel {
                 margin-left: 50%;
                 transform: translateX(-30%);
@@ -214,7 +254,7 @@
         }
 
         .navbar-nav li {
-            padding: 0 10px;
+            padding: 0 20px;
         }
         .navbar-toggler {
             border: none !important;
@@ -254,91 +294,6 @@
             margin-bottom: 00px;
             padding-bottom: -10px;
         }
-        @media(max-width: 767px){
-          main {
-  background-color: black;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-
-main {
-  position: relative;
-  min-height: 90%;
-}
-
-.container {
-  margin: auto;
-  text-align: center;
-}
-
-.title {
-  display: table;
-  margin: 0 auto;
-  font-family: 'Pacifico', cursive;
-  font-size: 3em;
-  color: white;
-}
-
-
-.main {
-  width: 16%;
-  height: 0;
-  position: absolute;
-  padding-bottom: 16%;
-  margin: auto;
-  margin-top: -3%;
-  top:10%;
-  left: 60%;
-}
-
-.yada {
-  height: 70%;
-  width: 70%;
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.6;
-}
-
-.blue {
-  background-color: transparent;
-  border: 8px solid blue;
-  -webkit-transform: translate(-75%, 100%);
-}
-
-.green {
-  background-color: transparent;
-  border: 8px solid green;
-  -webkit-transform: translate(0, 25%);
-  -webkit-transform: translate(0, 175%);
-}
-
-.red {
-  background-color: transparent;
-  border: 8px solid red;
-  -webkit-transform: translate(0, 25%);
-}
-
-.yellow {
-  background-color: transparent;
-  border: 8px solid #ffd54f;
-  -webkit-transform: translate(75%, 100%);
-}
-      }
-@media only screen and (min-device-width: 320px) and (max-device-width: 620px) {
-  .main {
-    width: 40%;
-    padding-bottom: 40%;
-  }
-}
-
-@media only screen and (min-device-width: 750px) and (max-device-width: 1100px) {
-  .main {
-    width: 35%;
-    padding-bottom: 35%;
-  }
-}
     </style>
     <script src="https://kit.fontawesome.com/ca1cdc2614.js" crossorigin="anonymous"></script>
 </head>
@@ -356,9 +311,6 @@ main {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                         <li class="nav-item active" style="padding-right:120px;">
-                            <a class="nav-link" style="font-family: 'Nova Cut', cursive;">MAZEMERIZE</a>
-                        </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
                         </li>
@@ -379,7 +331,8 @@ main {
         </div>
         <span id="wrapper" style="margin-left:auto; margin-right:auto;">
 
-             <div id="maze">
+            <h1 id="heading" style="background-color:black; text-decoration-style: solid; color: #F8F8F8; width: 100%; margin-top:10px; margin-bottom: 10px;font-family: 'Nova Cut', cursive;">Mazemerize</h1>
+            <div id="maze">
                 <div id="timerel" style="display:inline-block;text-align: center;"></div>
                 <div id="c" style="margin-left:auto; margin-right:auto;text-align: center;color: white;"></div>
 
@@ -406,22 +359,22 @@ main {
 
             </div>
             <!---BUTTONS VIRTUAL KEYBOARD-->
+            <div class="buttons" style="touch-action: manipulation;">
+                <span class="button-top">
+                    <button value="38" id='up' onclick="doKeyDown2(38)"><i class="fa fa-arrow-up"></i></button><br>
+                </span>
+                <span class="button-bottom">
+                    <button value="37" id='left' onclick="doKeyDown2(37)"><i class="fa fa-arrow-left"></i></button>
+                    <button value="39" id='right' onclick="doKeyDown2(39)"><i
+                            class="fa fa-arrow-right"></i></button><br>
+                </span>
+                <span class="button-top">
+                    <button value="40" id='down' onclick="doKeyDown2(40)" class="not_visible"><i
+                            class="fa fa-arrow-down"></i></button>
+                </span>
+            </div>
 
-<main>
-    <div class="container">
-
-
-      <!-- START OF GAME BUTTONS -->
-      <div class="clearfix"></div>
-      <div class="main">
-        <div class="yada red" value="38" onclick="doKeyDown2(38)"></div>
-        <div class="yada blue" value="37" onclick="doKeyDown2(37)"></div>
-        <div class="yada yellow" value="39" onclick="doKeyDown2(39)"></div>
-        <div class="yada green" value="40" onclick="doKeyDown2(40)"></div>
-      </div>
-      <!-- END OF GAME BUTTONS -->
-      </div>
-  </main>
+            </div>
             <!--canvas id="c" width="2048" height="2048" style="margin-left:auto; margin-right:auto"></canvas-->
             <script type="text/javascript">
                 var Moves = 0;
