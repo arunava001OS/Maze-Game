@@ -496,9 +496,14 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto"></ul>
           <li class="nav-item">
-            <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-outline btn-xl js-scroll-trigger" style="border: 2px solid;"  ><i class="fa fa-google fa-fw">
-            </i> Login with Google
-          </a>
+            <a href="{% url 'login' %}" class = "btn btn-outline btn-xl js-scroll-trigger" style="border: 2px solid white;color: white;">Login</a>
+          </li>
+          <li class="nav-item">
+         
+            <a href="{% url 'signup' %}" class = "btn btn-outline btn-xl js-scroll-trigger" style="border: 2px solid white;color: white;">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'social:begin' 'google-oauth2' %}" class = "btn btn-outline btn-xl js-scroll-trigger" style="border: 2px solid white;color: white;">GOOGLE</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Rules and regulations</a>

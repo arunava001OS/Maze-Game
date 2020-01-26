@@ -11,6 +11,7 @@ urlpatterns = [
 
     path('game/',views.game,name='game'),
     path('game/playnow2/<key>',views.play2,name = 'play2'),
-    path('auth/',include('social_django.urls',namespace = 'social')),
+
+    path('auth/', include('social_django.urls', namespace='social')),
 
 ]
