@@ -288,7 +288,9 @@ main {
   color: white;
 }
 
-
+#title{
+visibility: hidden;
+}
 .main {
   width: 16%;
   height: 0;
@@ -346,6 +348,17 @@ main {
     padding-bottom: 35%;
   }
 }
+@media (min-width:1000px){
+#title1{
+visibility:hidden;
+margin-top:-60px;
+}}
+@media (max-width: 767px){
+#title1{
+position: relative;
+left:20%;
+
+}}
     </style>
     <script src="https://kit.fontawesome.com/ca1cdc2614.js" crossorigin="anonymous"></script>
 </head>
@@ -363,7 +376,7 @@ main {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active" style="position:absolute;right: 45%;font-family: 'Nova Cut', cursive;">
+                        <li class="nav-item active" id="title" style="position:absolute;right: 45%;font-family: 'Nova Cut', cursive;">
                             <a class="nav-link">MAZEMERIZE</a>
                         </li>
                         <li class="nav-item active">
@@ -387,6 +400,8 @@ main {
         <span id="wrapper" style="margin-left:auto; margin-right:auto;">
 
               <div id="maze">
+                  <h1 id="title1" style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Mazemerize</h1>
+
                 <div id="timerel" style="display:inline-block;text-align: center;"></div>
                 <div id="c" style="margin-left:auto; margin-right:auto;text-align: center;color: white;"></div>
 
