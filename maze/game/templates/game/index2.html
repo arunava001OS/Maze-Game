@@ -227,8 +227,8 @@
         }
         .navbar-toggler {
             border: none !important;
-            right: -40%;
-            position: absolute;
+            position:relative;
+            right:-50%;
         }
 
         .navbar-toggler-icon{
@@ -380,9 +380,7 @@ left:20%;
                         <li class="nav-item active" id="title" style="position:absolute;right: 45%;font-family: 'Nova Cut', cursive;">
                             <a class="nav-link">MAZEMERIZE</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'play' %}">HOME</a>
                         </li>
@@ -391,6 +389,9 @@ left:20%;
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Rules and regulations</a>
+                        </li>
+                         <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
                         </li>
 
 

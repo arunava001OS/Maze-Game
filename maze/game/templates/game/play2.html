@@ -480,18 +480,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <a href="#" onclick="signOut();">Sign out</a>
-          <script>
-            function signOut() {
-              var auth2 = gapi.auth2.getAuthInstance();
-              auth2.signOut().then(function () {
-                console.log('User signed out.');
-              });
-            }
-          </script>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'play' %}">HOME</a>
           </li>
@@ -500,6 +489,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Rules and regulations</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
           </li>
 
 
