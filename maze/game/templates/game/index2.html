@@ -380,18 +380,19 @@ left:20%;
                         <li class="nav-item active" id="title" style="position:absolute;right: 45%;font-family: 'Nova Cut', cursive;">
                             <a class="nav-link">MAZEMERIZE</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'play' %}">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'game' %}">PLAY NOW</a>
+                            <button type="button" class="btn" data-toggle="modal" data-target="#myModal" style="color: white;">RULES</button>
+
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Rules and regulations</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
                         </li>
+                        
+                        
+                        
 
 
                     </ul>
@@ -429,6 +430,10 @@ left:20%;
 
             </div>
             <!---BUTTONS VIRTUAL KEYBOARD-->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered">
+              
+                  
             <main>
     <div class="container">
 
