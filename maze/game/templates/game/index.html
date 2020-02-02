@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -360,7 +361,7 @@
     @media only screen and (min-width: 1000px) {
       #title {
         font-size: 10vw;
-        margin-top: 10vw;
+        margin-top: 4vw;
         margin-bottom: 1vw;
       }
 
@@ -525,7 +526,9 @@
     .navbar{
       padding-top: 2vw;
     }
-
+ @media (max-width:767px){
+    #logo{
+    height:50px;}}
     #rules{
       background-color:rgba(255, 255, 255, 0.315);
       font-family: 'Nova Cut', cursive;
@@ -554,7 +557,7 @@
   <!-----Navigatio  nBar---->
   <section id="nav-bar">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#"><img src="mazelogo.jpg"></a>
+      <a class="navbar-brand" href="https://arhn.co.in/" target="_blank"><img src="{% static 'img/logo.png' %}" id="logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -2045,13 +2048,7 @@
   </div>
   <h1 id="title" style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Mazemerize</h1>
   <h2 id='username' style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">WELCOME</h2>
-  <div class="container-fluid" id = "rules" style="text-align: center;">
-    <div class="row">
-      <div class="col-12">
-        <h1 style="color: white;" >Rules</h1>
-      </div>
-    </div>
-  </div>
+
 
 </body>
 
