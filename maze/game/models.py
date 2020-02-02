@@ -10,6 +10,10 @@ class Profile(models.Model):
 	image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 	win = models.IntegerField(default=0)
 	lose = models.IntegerField(default=0)
+	game = models.IntegerField(default=0)
+
+	class Meta():
+		ordering = ('-win','lose')
 
 	def __str__(self):
 		return str(self.user)

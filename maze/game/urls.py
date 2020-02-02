@@ -8,6 +8,7 @@ urlpatterns = [
 	path('login/',views.login_view,name='login'),
 	path('signout/',views.logout_view,name='logout'),
     path('playnow/',views.play,name = 'play'),
+    path('playnow/leaderboard/',views.leaderboard,name = 'leader'),
 
     path('game/',views.game,name='game'),
     path('game/playnow2/<key>',views.play2,name = 'play2'),

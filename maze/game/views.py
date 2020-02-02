@@ -59,9 +59,15 @@ def play2(request,key):
 		p.win += 1
 	elif(int(key) == -1):
 		p.lose += 1
+	p.game += 1
 	p.save()
 	return render(request,'game/play2.html',{'p':p})
 
 
 def game(request):
 	return render(request,'game/index2.html',{})
+
+def leaderboard(request):
+	p = Profile.objects.all()
+	return render(request,'game/leaderboard.html',{'p':p})
+

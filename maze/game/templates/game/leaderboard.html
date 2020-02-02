@@ -1,0 +1,565 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <title>Play Now</title>
+  <style>
+    body {
+      background-color: #151515;
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      overflow: hidden;
+
+      --blue: #3aa8c3;
+      --lightBlue: #0ff;
+      --spinAnimation: spin 23s cubic-bezier(.39, -0.52, .53, .98) 0s infinite;
+    }
+
+    #container {
+      width: 90vw;
+      height: 90vw;
+      max-width: 90vh;
+      max-height: 90vh;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    #portal {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    #portal>#mainGear {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      z-index: 1;
+      animation: var(--spinAnimation);
+      will-change: transform;
+      z-index: 100;
+    }
+
+    #mainGear>path {
+      fill: #735290;
+    }
+
+
+    #mainGear .decoration {
+      fill: var(--blue);
+      stroke: var(--blue);
+      stroke-width: 1px;
+    }
+
+    #mainGear .runes path,
+    #mainGear .runes circle {
+      fill: none;
+      stroke: var(--blue);
+      stroke-width: 2px;
+    }
+
+    #mainGear .runes path.filled,
+    #mainGear .runes circle {
+      fill: var(--blue);
+    }
+
+    #portal>#innerGears {
+      position: absolute;
+      top: 14.5%;
+      left: 14.5%;
+      right: 14.5%;
+      bottom: 14.5%;
+      border-radius: 50%;
+      -webkit-clip-path: circle(50%);
+      overflow: hidden;
+    }
+
+    #portal>#innerGears>.innerGear {
+      position: absolute;
+      transform-origin: center;
+      animation: var(--spinAnimation);
+      will-change: transform;
+    }
+
+    .innerGear:nth-child(1) {
+      width: 190%;
+      height: 190%;
+      bottom: -22%;
+      left: -45%;
+      z-index: 99;
+    }
+
+    .innerGear:nth-child(2) {
+      width: 150%;
+      height: 150%;
+      bottom: -8%;
+      left: -16%;
+      z-index: 98;
+    }
+
+    .innerGear:nth-child(3) {
+      width: 117%;
+      height: 117%;
+      top: -17%;
+      left: 3%;
+      z-index: 97;
+    }
+
+    .innerGear:nth-child(4) {
+      width: 100%;
+      height: 100%;
+      top: -2%;
+      left: 12%;
+      z-index: 96;
+    }
+
+    .innerGear:nth-child(5) {
+      width: 92%;
+      height: 92%;
+      top: 9.5%;
+      left: 15.5%;
+      z-index: 95;
+    }
+
+    .innerGear:nth-child(6) {
+      width: 79.5%;
+      height: 79.5%;
+      top: 19.5%;
+      left: 17%;
+      z-index: 94;
+    }
+
+    .innerGear:nth-child(7) {
+      width: 70%;
+      height: 70%;
+      top: 23.3%;
+      left: 17%;
+      z-index: 93;
+    }
+
+    .innerGear:nth-child(8) {
+      width: 63%;
+      height: 63%;
+      top: 25%;
+      left: 15%;
+      z-index: 92;
+    }
+
+    .innerGear:nth-child(9) {
+      width: 55%;
+      height: 55%;
+      top: 26%;
+      left: 18%;
+      z-index: 91;
+    }
+
+    .innerGear:nth-child(10) {
+      width: 51%;
+      height: 51%;
+      top: 25%;
+      left: 18.5%;
+      z-index: 90;
+    }
+
+    .innerGear:nth-child(11) {
+      width: 48%;
+      height: 48%;
+      top: 23.5%;
+      left: 21%;
+      z-index: 89;
+    }
+
+    .innerGear:nth-child(12) {
+      width: 45%;
+      height: 45%;
+      top: 23%;
+      left: 24%;
+      z-index: 88;
+    }
+
+    .innerGear:nth-child(13) {
+      width: 40%;
+      height: 40%;
+      top: 25.5%;
+      left: 29.2%;
+      z-index: 87;
+    }
+
+    .innerGear:nth-child(14) {
+      width: 35%;
+      height: 35%;
+      top: 32%;
+      left: 34%;
+      z-index: 86;
+    }
+
+    .innerGear:nth-child(15) {
+      width: 32%;
+      height: 32%;
+      top: 31%;
+      left: 35%;
+      z-index: 85;
+    }
+
+    .innerGear .teeth {
+      fill: url(#radial);
+      stroke-width: 5px;
+      stroke: var(--lightBlue);
+    }
+
+    .innerGear .runes path {
+      fill: var(--lightBlue);
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      8% {
+        transform: rotate(30deg);
+      }
+
+      9% {
+        transform: rotate(30deg);
+      }
+
+      17% {
+        transform: rotate(60deg);
+      }
+
+      18% {
+        transform: rotate(60deg);
+      }
+
+      25% {
+        transform: rotate(90deg);
+      }
+
+      26% {
+        transform: rotate(90deg);
+      }
+
+      33% {
+        transform: rotate(120deg);
+      }
+
+      34% {
+        transform: rotate(120deg);
+      }
+
+      42% {
+        transform: rotate(150deg);
+      }
+
+      43% {
+        transform: rotate(150deg);
+      }
+
+      50% {
+        transform: rotate(180deg);
+      }
+
+      51% {
+        transform: rotate(180deg);
+      }
+
+      58% {
+        transform: rotate(210deg);
+      }
+
+      59% {
+        transform: rotate(210deg);
+      }
+
+      67% {
+        transform: rotate(240deg);
+      }
+
+      68% {
+        transform: rotate(240deg);
+      }
+
+      75% {
+        transform: rotate(270deg);
+      }
+
+      76% {
+        transform: rotate(270deg);
+      }
+
+      83% {
+        transform: rotate(300deg);
+      }
+
+      84% {
+        transform: rotate(300deg);
+      }
+
+      92% {
+        transform: rotate(330deg);
+      }
+
+      93% {
+        transform: rotate(330deg);
+      }
+
+      99% {
+        transform: rotate(360deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media only screen and (max-width: 686px) {
+      #now {
+        position: absolute;
+        left: 0%;
+        top: 88%;
+        transform: translateX(-20%);
+        color: #fff !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #ed3330;
+        padding: 10px 30px;
+        border-radius: 50px;
+        display: inline-block;
+        border: none;
+        transition: all 0.4s ease 0s;
+      }
+
+      #title {
+        margin-top: 30vw;
+      }
+
+    }
+
+    @media only screen and (min-width: 1000px) {
+      #title {
+        font-size: 10vw;
+        margin-top: 4vw;
+        margin-bottom: 1vw;
+      }
+
+      #username {
+        margin-top: 2vw;
+        font-size: 6vw;
+        margin-bottom: 1vw;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      button {
+        padding: 5vw;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 16px;
+        font-size: 2vw;
+      }
+
+      #now {
+        position: absolute;
+        left: 0%;
+        top: 90%;
+        color: #fff !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #ed3330;
+        padding: 10px 40px;
+        border-radius: 50px;
+        display: inline-block;
+        border: none;
+        transition: all 0.4s ease 0s;
+      }
+
+    }
+
+    #nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar-brand img {
+      height: 100px;
+      padding-left: 30px;
+    }
+
+    .navbar-nav li {
+      padding: 0 20px;
+    }
+
+    .navbar-nav li {
+      float: right;
+      text-align: left;
+    }
+
+    #nav-bar ul li a:hover {
+      color: #007bff !important;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-toggler {
+      border: none !important;
+    }
+
+    .navbar-toggler-icon {
+      background-color: rgba(255, 255, 255, 0.322);
+      border-radius: 2vw;
+    }
+
+    .nav-link {
+      color: #DAE0E2 !important;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    #navbarNav {
+      margin-bottom: 00px;
+      padding-bottom: -10px;
+    }
+
+
+    #now:hover {
+      background: #434343;
+      letter-spacing: 1px;
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+      transition: all 0.4s ease 0s;
+    }
+
+    @media (max-width: 767px) {
+      #now {
+        position: absolute;
+        left: 40%;
+        top: 80%;
+      }
+    }
+     @media (max-width:767px){
+    #logo{
+    height:50px;}}
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-----Navigatio  nBar---->
+  <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="https://arhn.co.in/" target="_blank"><img src="{% static 'img/logo.png' %}" id="logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'play' %}">HOME</a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn" data-toggle="modal" data-target="#myModal" style="color: white;">RULES</button>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'game' %}">PLAY</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </section>
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                RULES
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <ul>
+                  <li>Solve the maze in 25 seconds to earn Eurekoins </li>
+                  <li>Five Eurekoins will be awarded on solving the maze in the stipulated time while 2 Eurekoins will be deducted on failing todo so.</li>
+                  <li>The game can be played any number of times</li>
+                  <li>Eurekoins will be accessible only after the app goes live</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <table class="table">
+    <thead style="color: white;font-weight: bold;">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Wins</th>
+        <th scope="col">Losses</th>
+        <th scope="col">Number Of Games</th>
+      </tr>
+    </thead>
+    <tbody style="color: white;">
+      {% for i in p %}
+      <tr style="color: white;">
+        <th scope="row">{{i.user.first_name}} {{i.user.last_name}}</th>
+        <td>{{i.win}}</td>
+        <td>{{i.lose}}</td>
+        <td>{{i.game}}</td>
+      </tr>
+      {% endfor%}
+    </tbody>
+  </table>
+
+
+
+</body>
+
+</html>
