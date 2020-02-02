@@ -1945,9 +1945,9 @@
     </div>
   </div>
   <h1 id="title" style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Mazemerize</h1>
-  <h2 id='username' style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Hello {{p.user.username}}
+  <h2 id='username' style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Hello {{p.user.first_name}}
   </h2>
-  <h3 id='moves' style="color: white;text-align: center;font-family: 'Nova Cut', serif;">Least moves to win {{p.moves}}
+  <h3 id='moves' style="color: white;text-align: center;font-family: 'Nova Cut', serif;">Least moves till now {{p.moves}}
   </h3>
 
   <button id="now"><a href="{% url 'game' %}">PLAY AGAIN</a></button>

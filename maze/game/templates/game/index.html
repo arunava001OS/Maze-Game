@@ -553,8 +553,8 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <button href="{% url 'social:begin' 'google-oauth2' %}" class="loginBtn loginBtn--google">
-            Login with Google
+          <button  class="loginBtn loginBtn--google">
+            <a href="{% url 'social:begin' 'google-oauth2' %}" style="text-decoration: none;color: white;">Login with Google</a> 
           </button>
         </li>
         <li class="nav-item">
