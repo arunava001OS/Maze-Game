@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/html">
 
@@ -25,7 +26,9 @@
             overflow-x: hidden;
             touch-action:manipulation;
         }
-
+ @media (max-width:767px){
+    #logo{
+    height:50px;}}
         #heading {
             text-align: center;
             margin-top: 15px;
@@ -228,7 +231,7 @@
         .navbar-toggler {
             border: none !important;
             right: -40%;
-            position: absolute;
+            position: relative;
         }
 
         .navbar-toggler-icon{
@@ -370,7 +373,7 @@ left:20%;
         <!-----Navigatio  nBar---->
         <section id="nav-bar">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="mazelogo.jpg"></a>
+      <a class="navbar-brand" href="https://arhn.co.in/" target="_blank"><img src="{% static 'img/logo.png' %}" id="logo"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -474,7 +477,7 @@ left:20%;
                     console.log("func called")
                     modal.style.display = "block";
                     x = document.querySelector(".gamehead");
-                    x.textContent = "Congrats! You Win"
+                    x.textContent = ""
                     Win = 1;
                     window.location.replace("playnow2/" + String(Win));
 
