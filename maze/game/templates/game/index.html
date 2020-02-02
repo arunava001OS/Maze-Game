@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-signin-client_id" content="999683917365-s9vj33npuahriv4mb0nsgcmdev57t7jb.apps.googleusercontent.com.apps.googleusercontent.com">
+  <meta name="google-signin-client_id"
+    content="999683917365-s9vj33npuahriv4mb0nsgcmdev57t7jb.apps.googleusercontent.com.apps.googleusercontent.com">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -332,23 +333,25 @@
         transform: rotate(360deg);
       }
     }
+
     @media only screen and (max-width: 686px) {
       #now {
-      position: absolute;
-      left: 0%;
-      top: 90%;
-      transform: translateX(-20%);
-      color: #fff !important;
-      text-transform: uppercase;
-      text-decoration: none;
-      background: #ed3330;
-      padding: 15px;
-      border-radius: 50px;
-      display: inline-block;
-      border: none;
-      transition: all 0.4s ease 0s;
-    }
-      #title{
+        position: absolute;
+        left: 0%;
+        top: 90%;
+        transform: translateX(-20%);
+        color: #fff !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #ed3330;
+        padding: 15px;
+        border-radius: 50px;
+        display: inline-block;
+        border: none;
+        transition: all 0.4s ease 0s;
+      }
+
+      #title {
         margin-top: 30vw;
       }
 
@@ -386,20 +389,21 @@
         border-radius: 16px;
         font-size: 2vw;
       }
+
       #now {
-      position: absolute;
-      left: 0%;
-      top: 90%;
-      color: #fff !important;
-      text-transform: uppercase;
-      text-decoration: none;
-      background: #ed3330;
-      padding: 15px;
-      border-radius: 50px;
-      display: inline-block;
-      border: none;
-      transition: all 0.4s ease 0s;
-    }
+        position: absolute;
+        left: 0%;
+        top: 90%;
+        color: #fff !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #ed3330;
+        padding: 15px;
+        border-radius: 50px;
+        display: inline-block;
+        border: none;
+        transition: all 0.4s ease 0s;
+      }
 
     }
 
@@ -428,14 +432,15 @@
     }
 
     .navbar {
-      background:rgba(0, 0, 0, 0.1);;
+      background: rgba(0, 0, 0, 0.1);
+      ;
     }
 
     .navbar-toggler {
       border: none !important;
     }
 
-    .navbar-toggler-icon{
+    .navbar-toggler-icon {
       background-color: rgba(255, 255, 255, 0.322);
       border-radius: 2vw;
     }
@@ -451,7 +456,7 @@
       padding-bottom: -10px;
     }
 
-    
+
     #now:hover {
       background: #434343;
       letter-spacing: 1px;
@@ -468,6 +473,58 @@
         top: 80%;
       }
     }
+
+    /*login button*/
+    .loginBtn {
+      box-sizing: border-box;
+      position: relative;
+      /* width: 13em;  - apply for fixed size */
+      padding: 0 15px 0 46px;
+      border: none;
+      text-align: left;
+      line-height: 34px;
+      white-space: nowrap;
+      border-radius: 0.2em;
+      font-size: 16px;
+      color: #FFF;
+    }
+
+    .loginBtn:before {
+      content: "";
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 34px;
+      height: 100%;
+    }
+
+    .loginBtn:focus {
+      outline: none;
+    }
+
+    .loginBtn:active {
+      box-shadow: inset 0 0 0 32px rgba(0, 0, 0, 0.1);
+    }
+    /* Google */
+    .loginBtn--google {
+      /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+      background: #DD4B39;
+    }
+
+    .loginBtn--google:before {
+      border-right: #BB3F30 1px solid;
+      background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_google.png') 6px 6px no-repeat;
+    }
+
+    .loginBtn--google:hover,
+    .loginBtn--google:focus {
+      background: #E74B37;
+    }
+
+    .navbar{
+      padding-top: 2vw;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Nova+Cut&display=swap" rel="stylesheet">
@@ -478,10 +535,10 @@
       console.log('Name: ' + profile.getName());
       console.log('Image URL: ' + profile.getImageUrl());
       console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  }
+    }
 
   </script>
-  
+
 </head>
 
 <body>
@@ -494,14 +551,15 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto"></ul>
-
-          <li class="nav-item">
-            <a href="{% url 'social:begin' 'google-oauth2' %}" class = "btn btn-outline btn-xl js-scroll-trigger" style="border: 2px solid white;color: white;margin-top: 20px;">LOGIN WITH GOOGLE</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Rules and regulations</a>
-          </li>
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <button href="{% url 'social:begin' 'google-oauth2' %}" class="loginBtn loginBtn--google">
+            Login with Google
+          </button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Rules and regulations</a>
+        </li>
 
 
         </ul>
