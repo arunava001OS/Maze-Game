@@ -55,10 +55,10 @@ def play(request):
 def play2(request,key):
 	user = User.objects.get(username = request.user)
 	p = Profile.objects.get(user = user)
-	if(p.moves == 0):
-		p.moves = key
-	elif(int(key) < p.moves):
-		p.moves = key
+	if(int(key) == 1):
+		p.win += 1
+	elif(int(key) == -1):
+		p.lose += 1
 	p.save()
 	return render(request,'game/play2.html',{'p':p})
 

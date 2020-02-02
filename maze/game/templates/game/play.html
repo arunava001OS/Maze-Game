@@ -332,7 +332,7 @@
       #now {
       position: absolute;
       left: 0%;
-      top: 90%;
+      top: 150%;
       transform: translateX(-20%);
       color: #fff !important;
       text-transform: uppercase;
@@ -1942,17 +1942,11 @@
   <h1 id="title" style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Mazemerize</h1>
   <h2 id='username' style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Hello {{p.user.first_name}}
   </h2>
-  <h3 id='moves' style="color: white;text-align: center;font-family: 'Nova Cut', serif;">Least Moves till now {{p.moves}}
-  </h3>
+  <h3 id='moves' style="color: white;text-align: center;font-family: 'Nova Cut', serif;">Wins {{p.win}}</h3>
+  <h3 id='moves' style="color: white;text-align: center;font-family: 'Nova Cut', serif;">Losses {{p.lose}}</h3>
 
   <button id="now"><a href="{% url 'game' %}">PLAY NOW</a></button>
-  <div class="container-fluid" id = "rules" style="text-align: center;">
-    <div class="row">
-      <div class="col-12">
-        <h1 style="color: white;" >Rules</h1>
-      </div>
-    </div>
-  </div>
+  
 
 </body>
 

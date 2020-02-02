@@ -448,6 +448,8 @@ left:20%;
             <!--canvas id="c" width="2048" height="2048" style="margin-left:auto; margin-right:auto"></canvas-->
             <script type="text/javascript">
                 var Moves = 0;
+                var Win = 0;
+                var Loss = 0;
                 // Get the modal
                 var modal = document.getElementById('myModal');
 
@@ -468,7 +470,8 @@ left:20%;
                     modal.style.display = "block";
                     x = document.querySelector(".gamehead");
                     x.textContent = "Congrats! You Win"
-                    window.location.replace("playnow2/" + String(Moves));
+                    Win = 1;
+                    window.location.replace("playnow2/" + String(Win));
 
 
                 }
@@ -513,7 +516,8 @@ left:20%;
                                 start = Date.now() + 1000;
                                 playing = false
                                 //modelfungo();
-                                window.location.replace("{% url 'play' %}");
+                                Loss = -1
+                                window.location.replace("playnow2/" + String(Loss));
                             }
                         }
                     };
