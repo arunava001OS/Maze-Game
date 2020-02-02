@@ -328,23 +328,25 @@
         transform: rotate(360deg);
       }
     }
+
     @media only screen and (max-width: 686px) {
       #now {
-      position: absolute;
-      left: 0%;
-      top: 90%;
-      transform: translateX(-20%);
-      color: #fff !important;
-      text-transform: uppercase;
-      text-decoration: none;
-      background: #ed3330;
-      padding: 15px;
-      border-radius: 50px;
-      display: inline-block;
-      border: none;
-      transition: all 0.4s ease 0s;
-    }
-      #title{
+        position: absolute;
+        left: 0%;
+        top: 90%;
+        transform: translateX(-20%);
+        color: #fff !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #ed3330;
+        padding: 15px;
+        border-radius: 50px;
+        display: inline-block;
+        border: none;
+        transition: all 0.4s ease 0s;
+      }
+
+      #title {
         margin-top: 30vw;
       }
 
@@ -382,20 +384,21 @@
         border-radius: 16px;
         font-size: 2vw;
       }
+
       #now {
-      position: absolute;
-      left: 0%;
-      top: 90%;
-      color: #fff !important;
-      text-transform: uppercase;
-      text-decoration: none;
-      background: #ed3330;
-      padding: 15px;
-      border-radius: 50px;
-      display: inline-block;
-      border: none;
-      transition: all 0.4s ease 0s;
-    }
+        position: absolute;
+        left: 0%;
+        top: 90%;
+        color: #fff !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #ed3330;
+        padding: 15px;
+        border-radius: 50px;
+        display: inline-block;
+        border: none;
+        transition: all 0.4s ease 0s;
+      }
 
     }
 
@@ -424,14 +427,14 @@
     }
 
     .navbar {
-      background:rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.1);
     }
 
     .navbar-toggler {
       border: none !important;
     }
 
-    .navbar-toggler-icon{
+    .navbar-toggler-icon {
       background-color: rgba(255, 255, 255, 0.322);
       border-radius: 2vw;
     }
@@ -447,7 +450,7 @@
       padding-bottom: -10px;
     }
 
-    
+
     #now:hover {
       background: #434343;
       letter-spacing: 1px;
@@ -464,9 +467,17 @@
         top: 80%;
       }
     }
-    #rules{
-      background-color:rgba(255, 255, 255, 0.315);
+
+    #rules {
+      background-color: rgba(255, 255, 255, 0.315);
       font-family: 'Nova Cut', cursive;
+    }
+
+    button:hover > a{
+      color: white;
+    }
+    a:hover{
+      text-decoration: none;
     }
   </style>
   <link href="https://fonts.googleapis.com/css?family=Nova+Cut&display=swap" rel="stylesheet">
@@ -484,33 +495,44 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <a href="#" onclick="signOut();">Sign out</a>
-          <script>
-            function signOut() {
-              var auth2 = gapi.auth2.getAuthInstance();
-              auth2.signOut().then(function () {
-                console.log('User signed out.');
-              });
-            }
-          </script>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'play' %}">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'game' %}">PLAY NOW</a>
+            <button type="button" class="btn" data-toggle="modal" data-target="#myModal" style="color: white;">RULES</button>
+
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Rules and regulations</a>
+            <a class="nav-link" href="{% url 'game' %}">PLAY</a>
           </li>
-
-
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+          </li>
         </ul>
       </div>
     </nav>
   </section>
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                RULES
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
   <div id="container" style="z-index: -1;">
     <div id="portal">
       <svg id="mainGear" viewBox="-10 -10 532 532" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -1949,7 +1971,8 @@
     </div>
   </div>
   <h1 id="title" style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Mazemerize</h1>
-  <h2 id='username' style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Hello {{p.user.first_name}}
+  <h2 id='username' style="color: white;text-align: center;font-family: 'Nova Cut', cursive;">Hello
+    {{p.user.first_name}}
   </h2>
   <h3 id='moves' style="color: white;text-align: center;font-family: 'Nova Cut', serif;">Wins {{p.win}}</h3>
   <h3 id='moves' style="color: white;text-align: center;font-family: 'Nova Cut', serif;">Losses {{p.lose}}</h3>
