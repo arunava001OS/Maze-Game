@@ -373,39 +373,37 @@ left:20%;
         <!-----Navigatio  nBar---->
         <section id="nav-bar">
             <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="https://arhn.co.in/" target="_blank"><img src="{% static 'img/logo.png' %}" id="logo"></a>
+                <a class="navbar-brand" href="https://arhn.co.in/" target="_blank"><img src="{% static 'img/logo.png' %}" id="logo"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active" id="title" style="position:absolute;right: 45%;font-family: 'Nova Cut', cursive;">
-                            <a class="nav-link">MAZEMERIZE</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'play' %}">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <button type="button" class="btn" data-toggle="modal" data-target="#myModal" style="color: white;">RULES</button>
-
-                        </li>
-                        <li>
-                            <button type="button" class="btn" style="color: white;">
-                              <a href="/playnow/leaderboard">LEADERBOARD</a>
-                            </button>
-                          </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
-                        </li>
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <button type="button" class="btn" style="color: white;">
+                        <a href="{% url 'play' %}" style="color: white;">HOME</a>
+                      </button>
+                    </li>
+                    <li class="nav-item">
+                      <button type="button" class="btn" style="color: white;">
+                        <a href="{% url 'game' %}" style="color: white;">PLAY</a>
+                      </button>
+                    </li>
+                    <li class="nav-item">
+                      <button type="button" class="btn" style="color: white;">
+                        <a href="/playnow/leaderboard" style="color: white;">LEADERBOARD</a>
+                      </button>
+                    </li>
+                    <li class="nav-item active">
+                        <button type="button" class="btn" style="color: white;">
+                          <a href="{% url 'logout' %}" style="color: white;">LOGOUT</a>
+                        </button>
                         
-                        
-                        
-
-
-                    </ul>
+                      </li>
+                  </ul>
                 </div>
-            </nav>
+              </nav>
         </div>
         <span id="wrapper" style="margin-left:auto; margin-right:auto;">
 

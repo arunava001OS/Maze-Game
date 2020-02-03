@@ -488,18 +488,30 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'play' %}">HOME</a>
+            <button type="button" class="btn" style="color: white;">
+              <a href="{% url 'play' %}" style="color: white;">HOME</a>
+            </button>
           </li>
           <li class="nav-item">
             <button type="button" class="btn" data-toggle="modal" data-target="#myModal" style="color: white;">RULES</button>
 
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'game' %}">PLAY</a>
+            <button type="button" class="btn" style="color: white;">
+              <a href="{% url 'game' %}" style="color: white;">PLAY</a>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn" style="color: white;">
+              <a href="/playnow/leaderboard" style="color: white;">LEADERBOARD</a>
+            </button>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
-          </li>
+              <button type="button" class="btn" style="color: white;">
+                <a href="{% url 'logout' %}" style="color: white;">LOGOUT</a>
+              </button>
+              
+            </li>
         </ul>
       </div>
     </nav>
@@ -547,7 +559,7 @@
       </tr>
     </thead>
     <tbody style="color: white;">
-      {% for i in p %}
+      {% for i in p%}
       <tr style="color: white;">
         <th scope="row">{{i.user.first_name}} {{i.user.last_name}}</th>
         <td>{{i.win}}</td>
